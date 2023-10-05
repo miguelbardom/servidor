@@ -68,3 +68,5 @@ print_r($_SERVER);
 
  define("USER","Miguel");  //es una constante
  echo USER;
+
+ echo "<a href='./vercodigo.php'>Ver código</a>";

@@ -32,7 +32,8 @@
 
  //funciones datetime, maketime, getdate
 
-
+ $ruta = $_SERVER['SCRIPT_FILENAME'];
+ echo "<a href='./../vercodigo.php?fichero=".$ruta."'>Pulsa para ver el código PHP</a>";
 
 
 
