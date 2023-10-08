@@ -54,7 +54,7 @@
             echo "<p>".date("d/m/y ",$hoy).date("l",$hoy)."</p>";
 
             echo "<a href='http://".$_SERVER['SERVER_ADDR']."/vercodigo.php?fichero=".$_SERVER['SCRIPT_FILENAME']."'>Pulsa para ver el código PHP</a>";
-            echo "<br>";
+            echo "<br><br>";
             
         ?>
     </main>

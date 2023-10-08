@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarea 03 - Página 2</title>
+    <title>Tarea 03 - Página 3</title>
     <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
@@ -13,20 +13,16 @@
     <main>
         <h2>TEMA 2 - Tarea 03</h2>
         <?php
-            echo "<h3>Página 2</h3>";
+            
+            $dia = $_GET['day'];
+            $mes = $_GET['month'];
+            $anho = $_GET['year'];
+            
+            $fecha = strtotime($mes."/".$dia."/".$anho);
+            echo "El día de la semana de la fecha indicada por URL es: ";
+            echo "<p>".date("l",$fecha)."</p>";
 
-            echo "";
-
-            $primera = "informática";
-            $segunda = 24;
-            $tercera = 21.6;
-            $cuarta = true;
-
-            $variable = ${$_GET['variable']};
-
-            echo "El valor de mi variable es "."' ".$variable." '".", es de tipo " . gettype($variable);
-
-            echo "<br><br>";
+            echo "<br>";
 
 
             echo "<a href='http://".$_SERVER['SERVER_ADDR']."/vercodigo.php?fichero=".$_SERVER['SCRIPT_FILENAME']."'>Pulsa para ver el código PHP</a>";

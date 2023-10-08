@@ -26,6 +26,7 @@
         var_dump("miguel");
         print "<br>";
         var_dump(3,"pepe");
+        var_dump(3.5);
 
         print "<br>Tipos de variables<br>";
         $mivariable = 6;
