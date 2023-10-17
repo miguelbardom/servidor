@@ -50,37 +50,77 @@ array(
 
 ?>
 
-<table border="1">
+
+<table border ="1">
     <thead>
         <?php
             echo "<th>Equipos</th>";
-            foreach ($liga as $casa => $rival) {
-                echo "<th colspan='4'>$casa</th>";
-                $auxiliar = array($casa);
-                print_r($auxiliar);
-            }    
+            $clas = array();
+            echo "<th>Puntos</th>";
+            echo "<th>Goles a favor</th>";
+            echo "<th>Goles en contra</th>";
         ?>
     </thead>
     <tbody>
         <?php
-            foreach ($liga as $casa => $rival) {
-                echo "<tr>";
-                    echo "<th>$casa</th>";
-                    foreach ($rival as $contenido => $valor) {
-                        echo "<td colspan='4'>";
-                        foreach ($valor as $key => $value) {
-                            $conta = 0;
-                            if ($auxiliar[$conta]==$contenido) {
-                                echo " ";
-                            } else {
-                                echo "<td>".$value."</td>";
-                            }
-                            $conta++;
+            foreach ($liga as $local => $partidos) {
+                foreach ($partidos as $rival => $partido) {
+                    print_r($partido);
+                    $resul = explode("-",$partido["Resultado"]);
+                    print_r($resul);
+                    if ($resul[0] > $resul[1]) {
+                        if (isset($clas[$local]["Puntos"])) {
+                            $clas[$local]["Puntos"] += 3;
+                        } else {
+                            $clas[$local]["Puntos"] = 3;
                         }
-                        echo "</td>";
+                    } elseif ($resul[0] < $resul[1]) {
+                        if (isset($clas[$rival]["Puntos"])) {
+                            $clas[$rival]["Puntos"] += 3;
+                        } else {
+                            $clas[$rival]["Puntos"] = 3;
+                        }
+                    } else {
+                        if (isset($clas[$local]["Puntos"])) {
+                            $clas[$local]["Puntos"] += 1;
+                        } else {
+                            $clas[$local]["Puntos"] = 1;
+                        }
+                        if (isset($clas[$rival]["Puntos"])) {
+                            $clas[$rival]["Puntos"] += 1;
+                        } else {
+                            $clas[$rival]["Puntos"] = 1;
+                        }
                     }
+                    if (isset($clas[$local]["Goles a favor"])) {
+                        $clas[$local]["Goles a favor"] += $resul[0];
+                    } else {
+                        $clas[$local]["Goles a favor"] = $resul[0];
+                    }
+                    if (isset($clas[$rival]["Goles a favor"])) {
+                        $clas[$rival]["Goles a favor"] += $resul[1];
+                    } else {
+                        $clas[$rival]["Goles a favor"] = $resul[1];
+                    }
+                    if (isset($clas[$local]["Goles en contra"])) {
+                        $clas[$local]["Goles en contra"] += $resul[0];
+                    } else {
+                        $clas[$local]["Goles en contra"] = $resul[0];
+                    }
+                    if (isset($clas[$rival]["Goles en contra"])) {
+                        $clas[$rival]["Goles en contra"] += $resul[1];
+                    } else {
+                        $clas[$rival]["Goles en contra"] = $resul[1];
+                    }
+                }
+                echo "<tr>";
+                echo "<th>$local</th>";
+                echo "<th>".$clas[$local]["Puntos"]."</th>";
+                echo "<th>".$clas[$local]["Goles a favor"]."</th>";
+                echo "<th>".$clas[$local]["Goles en contra"]."</th>";
                 echo "</tr>";
             }
-        ?>
+            
+        ?>    
     </tbody>
 </table>
