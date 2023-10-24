@@ -55,14 +55,14 @@ print_r(array_keys($semana));
 
 $notas = array("Smail"=>10,"Mario"=>9,"Manuel"=>"Sobresaliente");
 foreach ($notas as $key => $value) {
-    echo "<br> La nota de $key(indice) es : $valor(value)";
+    echo "<br> La nota de $key(indice) es : $value(value)";
 }
 
 //arrays multiples
 $arrayDAW = array("SOS"=>"Sistemas Operativos","SAD"=>"asd");//asociativo clave sea siglas y valor string
 $arrayDAM = array("LM"=>"Lenguajes de Marcas","PSP"=>"Prgram Servicios");
 $arrayASIR = array("SOR"=>"Sistemas Operativos","RD"=>"Redes");
-$ciclos = array("DAM" => $arrayDam,
+$ciclos = array("DAM" => $arrayDAM,
                 "DAW" => array("CLIENTE" => "PHP", "SERVIDOR" => "JS"),
                 "ASIR" => array("CLIENTEs" => "PHPs", "SERVIDORs" => "JSs")
                 );
