@@ -8,7 +8,7 @@
 <body>
     
     <form action="subir.php" method="post" enctype="multipart/form-data">
-        <input type="file" name="fichero" id="">
+        <input type="file" name="ficheros[]" id="" multiple>
         <input type="submit" name="Enviar" value="Enviar">
     </form>
 
