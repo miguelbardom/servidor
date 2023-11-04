@@ -11,11 +11,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <?php
+    
+        $errores = array();
+        //si ha ido todo bien
+        if (enviado() && validaFormulario($errores)) {
+            echo "<pre>";
+            print_r($_REQUEST);
+        }
+
+    ?>
     
     <form action="" method="post" name="formulario modelo" enctype="multipart/form-data">
         <h3>Formulario de registro</h3>
 
         <label for="alfab">Alfabético <input type="text" name="alfab" id="alfab" placeholder="Nombre"></label>
+        <p class="error">
+            <?php
+                errores($errores,'alfab');
+            ?>
+        </p>
         <br>
         <label for="alfabOpc">Alfabético Opcional <input type="text" name="alfabOpc" id="alfabOpc" placeholder="Nombre"></label>
         <br>
