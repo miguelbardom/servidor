@@ -30,29 +30,53 @@
         <label for="nombre">Nombre <input type="text" name="nombre" id="nombre" placeholder="Nombre"></label>
         <p class="error">
             <?php
-                errores($errores,'nombre');
-            ?>
-        </p>
-        <p class="error">
-            <?php
-                erroresExp($erroresExp,'nombre');
+                errores($errores,'nombre');echo "<br>";
+                errores($errores,'valNombre');
             ?>
         </p>
         <br>
         <label for="apellidos">Apellidos <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos"></label>
         <p class="error">
             <?php
-                errores($errores,'apellidos');
+                errores($errores,'apellidos');echo "<br>";
+                errores($errores,'valApellidos');
             ?>
         </p>
         <br>
         <label for="passwd">Contraseña <input type="password" name="passwd" id="passwd"></label>
+        <p class="error">
+            <?php
+                errores($errores,'valPasswd');
+            ?>
+        </p>
         <br>
-        <label for="rPasswd">Repetir contraseña <input type="password" name="rPasswd" id="rPasswd"></label>
+        <label for="rePasswd">Repetir contraseña <input type="password" name="rePasswd" id="rePasswd"></label>
+        <p class="error">
+            <?php
+                errores($errores,'valRePasswd');
+            ?>
+        </p>
         <br>
-        <label for="fecha">Fecha de nacimiento <input type="text" name="fecha" id="fecha"></label>
+        <label for="fecha">Fecha de nacimiento <input type="text" name="fecha" id="fecha" placeholder="dd/mm/AAAA"></label>
+        <p class="error">
+            <?php
+                errores($errores,'fechaVacio');echo "<br>";
+                if (!empty($_REQUEST['fecha'])) {
+                    errores($errores,'valFecha');
+                }
+                echo "<br>";
+                if (!empty($_REQUEST['fecha'])) {
+                    errores($errores,'edad');
+                }
+            ?>
+        </p>
         <br>
         <label for="dni">DNI <input type="text" name="dni" id="dni"></label>
+        <p class="error">
+            <?php
+                errores($errores,'dni');
+            ?>
+        </p>
         <br>
         <label for="email">Correo electrónico <input type="text" name="email" id="email"></label>
         <br>
