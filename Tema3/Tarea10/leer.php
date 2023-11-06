@@ -10,7 +10,7 @@
     <title>Leer</title>
 </head>
 <body>
-    <form action=`$action` method="post" name="leer" enctype="multipart/form-data">
+    <form action="" method="post" name="leer" enctype="multipart/form-data">
         <textarea name="textarea" id="textarea" cols="30" rows="10"><?
             leerFichero();
         ?>

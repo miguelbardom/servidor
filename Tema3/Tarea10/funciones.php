@@ -45,10 +45,10 @@ function crearErrores(&$errores){
 
 function leerFichero(){
     if(!$fp = fopen($_REQUEST['fichero'],'r'))
-            return false;
-        else{
-            $leido = fread($fp,filesize($_REQUEST['fichero']));
-            echo $leido;
+        return false;
+    else{
+        $leido = fread($fp,filesize($_REQUEST['fichero']));
+        echo $leido;
         fclose($fp);
-        }
+    }
 }
