@@ -61,19 +61,14 @@ $pdf->Write(5, "Granada, Espana");
 //tabla abajo
 $pdf->Ln();
 $pdf->SetXY(28,135);
-$pdf->Write(5, "Concepto");
-$pdf->Ln();
-
-$pdf->Cell(50,10,"Concepto",1,0,"",false);
-$pdf->Cell(30,10,"Cantidad",1,0,"C",false);
-$pdf->Cell(30,10,"Base Imponible",1,0,"C",false);
-$pdf->Cell(30,10,"I.V.A.",1,0,"C",false);
+$pdf->SetFont('Arial','',13);
+$pdf->SetTextColor(0,0,0);
 
 // $text = "€";
 // $pdfobj->Write(0,iconv('UTF-8', 'windows-1252', $text));
 
 $array = array(
-    array("Servicio de soporte tecnico y reparacion de sistemas informaticos", 2, 40.00),
+    array("Servicio de soporte tecnico y reparacion", 2, 80.00),
     array("Reparacion sistema operativo smartphone", 1, 35.00),
     array("Venta mouse CA-3245", 1, 10.00),
     array("Venta teclado supra CA-992", 1, 25.00),
@@ -82,54 +77,56 @@ $array = array(
 );
 
 function creaTabla($array, $pdf){
-    $pdf->SetFont('Arial','B',15);
+    $pdf->SetFillColor(0,154,255);
+    $pdf->Cell(70,10,"Concepto",0,0,"",true);
+    $pdf->Cell(30,10,"Cantidad",0,0,"C",true);
+    $pdf->Cell(30,10,"Precio",0,0,"C",true);
+    $pdf->Cell(30,10,"I.V.A.",0,0,"C",true);
+    $pdf->Ln();
+    $pdf->SetFont('Arial','',10);
+    $pdf->SetTextColor(0,0,70);
+    $pdf->SetFillColor(224,235,255);
+    $fill = false;
+    $x = 28;
+    $y = 135;
     foreach ($array as $row) {
-        foreach ($row as $dato){
-            $pdf->Cell(40,10,$dato,1,0,'C',false);
-        }
+        $y += 10;
+        $pdf->SetXY($x,$y);
+        $pdf->Cell(70, 10, $row[0], 0, 0, "", $fill);
+        $pdf->Cell(30, 10, $row[1], 0, 0, "C", $fill);
+        $pdf->Cell(30, 10, number_format($row[2],2), 0, 0, "C", $fill);
+        $pdf->Cell(30, 10, number_format(($row[2]*0.21), 2), 0, 0, "C", $fill);
         $pdf->Ln();
+        $fill = !$fill;
     }
-
+    // $pdf->SetXY(28,205);
+    // $pdf->Cell(160,0,'','T');
 }
+creaTabla($array, $pdf);
 
+$pdf->Ln();
+$pdf->SetFont('Arial','',12);
+$pdf->SetXY(120,210);
+$pdf->Write(5, "Total Precio:");
+$pdf->Ln();
+$pdf->SetXY(122,218);
+$pdf->Write(5, "I.V.A. 21%:");
+$pdf->Ln();
+$pdf->SetXY(166,210);
+$pdf->Write(5, number_format(230.00, 2));//lo he intentado con bucle pero me salia un error
+$pdf->Ln();
+$pdf->SetXY(167,218);
+$pdf->Write(5, number_format(230.00*0.21, 2));
+$pdf->Ln();
+$pdf->SetFont('Arial','B',15);
+$pdf->SetXY(28,226);
+$pdf->Cell(160,0,'','T');
+$pdf->SetXY(124,233);
+$pdf->Write(5, "TOTAL:");
+$pdf->Ln();
+$pdf->SetXY(163,233);
+$pdf->Write(5, number_format((230.00 + 230.00*0.21), 2));
+$pdf->Write(5, " E");
 
-
-
-
-
-$pdf->AddPage();
-
-$pdf->Cell(30,10,"Prueba",1,0,"C",false);
-$pdf->Cell(30,10,"Prueba",1,0,"C",false);
-$pdf->Cell(30,10,"Prueba",1,0,"C",false);
-
-$array = array(
-    array('pc1','Lenovo','1TB','4GB RAM'),
-    array('pc2','Dell','2TB','16GB RAM'),
-    array('pc3','HP','1TB','8GB RAM'),
-    array('pc4','Even','2TB','4GB RAM'),
-);
-$pdf->AddPage();
-
-creaTabla($array,$pdf);
 
 $pdf->Output();
-
-function crearTabla($array, $pdf){
-    $pdf->SetFont('Arial','B',15);
-    $pdf->SetFillColor(1,100,255);
-    $pdf->Cell(40,10,"PC",1,0,"C",true);
-    $pdf->Cell(40,10,"Marca",1,0,"C",true);
-    $pdf->Cell(40,10,"Disco Duro",1,0,"C",true);
-    $pdf->Cell(40,10,"RAM",1,0,"C",true);
-
-    $pdf->Ln();
-
-    foreach ($array as $row) {
-        foreach ($row as $dato){
-            $pdf->Cell(40,10,$dato,1,0,'C',false);
-        }
-        $pdf->Ln();
-    }
-
-}
