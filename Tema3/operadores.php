@@ -9,11 +9,11 @@ if (4>3) {
     echo " 4 que 3";
 }
 
-if (condition) {
-    # code...
-} else {
-    # code...
-}
+// if (condition) {
+//     # code...
+// } else {
+//     # code...
+// }
 
 foreach ($_SERVER as $key => $value) {
     echo "...";

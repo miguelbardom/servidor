@@ -16,13 +16,13 @@ print_r($_SERVER);
  }
 
  function pruebaVariableParametro($contador){
-    echo $contador; "<br>";
+    echo $contador; echo "<br>";
     $contador++;
     echo $contador;
  }
 
  function pruebaVariableReferencia(&$contador){
-    echo $contador; "<br>";
+    echo $contador; echo "<br>";
     $contador++;
     echo $contador;
  }
@@ -69,4 +69,8 @@ print_r($_SERVER);
  define("USER","Miguel");  //es una constante
  echo USER;
 
- echo "<a href='./vercodigo.php'>Ver código</a>";
+ echo "<br>";
+
+ $ruta = $_SERVER['SCRIPT_FILENAME'];
+ echo "<a href='./../vercodigo.php?fichero=".$ruta."'>Pulsa para ver el código PHP</a>";
+

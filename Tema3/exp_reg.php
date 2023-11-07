@@ -26,7 +26,9 @@ print_r($array);
 echo '<br>Numerico \d';
 $frase = 'Hoy es 31 de octubre Halloween y salimos';
 $exp = '/[0-9]/';
-$exp = '\[/d*/]/';
+echo preg_match($exp, $frase);
+$exp = '/[\d*]/';
+echo preg_match($exp, $frase);
 
 echo '<br>Código IBAN';
 $codigo = 'ES66 0019 0020 96 1234567890';

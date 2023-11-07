@@ -57,6 +57,7 @@
         print "<br>";
         echo $cadena;
 
+        print "<br>";
         $heredoc = <<< TEXT
         Escribo todo lo que quiero <p> con "comillas" </p>
         TEXT;
