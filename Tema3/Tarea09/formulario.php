@@ -60,12 +60,11 @@
         <label for="fecha">Fecha de nacimiento <input type="text" name="fecha" id="fecha" placeholder="dd/mm/AAAA"></label>
         <p class="error">
             <?php
-                errores($errores,'fechaVacio');echo "<br>";
+                errores($errores,'fechaVacio');
                 if (!empty($_REQUEST['fecha'])) {
+                    echo "<br>";
                     errores($errores,'valFecha');
-                }
-                echo "<br>";
-                if (!empty($_REQUEST['fecha'])) {
+                    echo "<br>";
                     errores($errores,'edad');
                 }
             ?>

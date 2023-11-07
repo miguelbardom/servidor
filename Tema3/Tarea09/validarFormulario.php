@@ -83,9 +83,9 @@ function validaEdad($name){
 function validaDNI($name){
     $arrayLetras = array("T","R","W","A","G","M","Y","F","P","D","X","B","N",
     "J","Z","S","Q","V","H","L","C","K");
-    $dni_length = strlen((string)$name);
+    $dni_length = strlen((string)$_REQUEST[$name]);
     if ($dni_length == 9) {
-        list($dni,$letraDNI) = str_split($name, 8);
+        list($dni,$letraDNI) = str_split($_REQUEST[$name], 8);
         if (is_numeric($dni)) {
             $letra = $dni%23;
             if($letraDNI == $arrayLetras[$letra]){
