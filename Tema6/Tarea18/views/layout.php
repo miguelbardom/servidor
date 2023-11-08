@@ -24,7 +24,7 @@
                     <input type="submit" value="Home" name="home">
             </form>
         </div>
-        <h1 style="display: flex; justify-content: center; text-align: center;">TRADE 2 SHOP</h1>
+        <h1 style="display: flex; justify-content: center; text-align: center;">MODAS MIGUEL</h1>
         <nav>
             <div>
                 <?php
