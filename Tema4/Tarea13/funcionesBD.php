@@ -16,7 +16,7 @@ try {
         }
     } while (true);
 
-    // $sql = 'create table arroyos (nombre varchar(25));';
+    // $sql = 'create table arroyos (nombre varchar(25) primary key, rio_desemboca varchar(25), longitud decimal);';
     // $stmt = $con->stmt_init();
     // $stmt->prepare($sql);
     // $nombre = 'Raul'; $edad = 35; $id = 3;

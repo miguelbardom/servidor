@@ -9,7 +9,7 @@ CREATE TABLE rios (
     nombre VARCHAR(25) primary key,
     num_afluentes int,
     longitud decimal,
-    ultima_medida date
+    ultima_medicion date
 );
 
 INSERT INTO rios VALUES ('Duero', 26, 897, '2023-11-25');
