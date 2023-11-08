@@ -91,13 +91,13 @@ if(file_exists('ficheroLineas.txt')){
 //Escribir en la segunda linea
 
 //Cuando queremos modificar un fichero secuencial
-//crear yb archivo temporal leer y modificar
+//crear un archivo temporal leer y modificar
 //borrar el anterior y renombrar el temp con el nombre del anterior
 
 $tmp = tempnam('.',"temp.txt");
 if(file_exists('ficheroLineas.txt')){
     echo "Existe";
-    if(!$fp = fopen('ficheroLineas.txt','r') || (!$ft = fopen($tmp,'w')) )
+    if((!$fp = fopen('ficheroLineas.txt','r')) || (!$ft = fopen($tmp,'w')) )
         echo "Ha habido un problema al abrir el fichero";
     else{
         $texto = 'Línea nueva';
@@ -106,7 +106,7 @@ if(file_exists('ficheroLineas.txt')){
             fputs($ft,$leido,strlen($leido));
             if($contador==1){
                 fputs($ft,$texto,strlen($texto));
-                fputs($ft,"\n",strlne('\n'));
+                fputs($ft,"\n",strlen('\n'));
                 $contador++;
             }
         }
