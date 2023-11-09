@@ -1,5 +1,6 @@
 <?php
-
+    include("./funciones.php");
+    aModificar();
 
 ?>
 
@@ -22,6 +23,7 @@
             if(!$fp = fopen('notas.csv','r'))
                 echo "Ha habido un problema al abrir el fichero";
             else{
+                $conta = 0;
                 while ($leido = fgetcsv($fp,filesize("notas.csv"),';')) {
                     echo "<tr>";
                     foreach($leido as $l){
@@ -30,13 +32,14 @@
                         echo "</td>";
                     }
                     echo "<td>
-                    <form action='' method='post'>
-                        <input type='hidden' name='oculto'>
+                    <form action='' method='get'>
+                        <input type='hidden' value=$conta name='oculto'>
                         <input type='submit' value='Modificar' name='Modificar'>
                         <input type='submit' value='Eliminar' name='Eliminar'>
                     </form>
-                </td>";
-                echo "</tr>";
+                    </td>";
+                    $conta++;
+                    echo "</tr>";
                 }
                 
     

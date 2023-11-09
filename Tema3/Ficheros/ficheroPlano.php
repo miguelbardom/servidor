@@ -101,10 +101,10 @@ if(file_exists('ficheroLineas.txt')){
         echo "Ha habido un problema al abrir el fichero";
     else{
         $texto = 'Línea nueva';
-        $contador = 1;
+        $contador = 5;
         while ($leido = fgets($fp,filesize("ficheroLineas.txt"))) {
             fputs($ft,$leido,strlen($leido));
-            if($contador==1){
+            if($contador==5){
                 fputs($ft,$texto,strlen($texto));
                 fputs($ft,"\n",strlen('\n'));
                 $contador++;
