@@ -55,4 +55,10 @@ foreach ($instrumentoLista as $value) {
 //descargar archivo
 header('Content-Type: txt/xml');
 header("Content-Disposition: attachment; filename=instrumentos.xml");
-readfile("./instrumentos.xml");
+
+
+//Para que no cuente los espacios en blanco
+// $dom = new DOMDocument('1.0');
+// $dom->load('instrumentos.xml',LIBXML_NOBLANKS);
+// $dom->formatOutput = false;
+// $dom->save('a.xml');
