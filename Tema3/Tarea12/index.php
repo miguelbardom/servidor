@@ -6,7 +6,7 @@ require('./contenido.php');
 $pdf = new Contenido();
 
 $pdf->AddPage();
-$pdf->SetFont('Arial','',9);
+$pdf->SetFont('Arial','',10);
 $pdf->SetX(27);
 $pdf->SetTextColor(0,0,70);
 
@@ -38,14 +38,59 @@ $pdf->SetXY(144,25);
 $pdf->Write(5, "Fecha factura: 21/11/2023");
 
 $pdf->Ln();
-$pdf->SetFont('Arial','B',16);
-$pdf->SetXY(120,40);
+$pdf->SetFont('Arial','B',17);
+$pdf->SetXY(115,40);
 $pdf->Write(12, "Cliente:");
 $pdf->Ln();
-$pdf->SetFont('Arial','',9);
-$pdf->SetXY(120,50);
+$pdf->SetFont('Arial','',10);
+$pdf->SetXY(115,50);
 $pdf->Write(5, "VicVal SL");
+$pdf->Ln();
+$pdf->SetXY(115,55);
+$pdf->Write(5, "CIF/NIF: B30142516");
+$pdf->Ln();
+$pdf->SetXY(115,60);
+$pdf->Write(5, "C/ Mala, no 1");
+$pdf->Ln();
+$pdf->SetXY(115,65);
+$pdf->Write(5, "18190 Granada");
+$pdf->Ln();
+$pdf->SetXY(115,70);
+$pdf->Write(5, "Granada, Espana");
 
+//tabla abajo
+$pdf->Ln();
+$pdf->SetXY(28,135);
+$pdf->Write(5, "Concepto");
+$pdf->Ln();
+
+$pdf->Cell(50,10,"Concepto",1,0,"",false);
+$pdf->Cell(30,10,"Cantidad",1,0,"C",false);
+$pdf->Cell(30,10,"Base Imponible",1,0,"C",false);
+$pdf->Cell(30,10,"I.V.A.",1,0,"C",false);
+
+// $text = "€";
+// $pdfobj->Write(0,iconv('UTF-8', 'windows-1252', $text));
+
+$array = array(
+    array("Servicio de soporte tecnico y reparacion de sistemas informaticos", 2, 40.00),
+    array("Reparacion sistema operativo smartphone", 1, 35.00),
+    array("Venta mouse CA-3245", 1, 10.00),
+    array("Venta teclado supra CA-992", 1, 25.00),
+    array("Venta pantalla i32", 1, 60.00),
+    array("Memoria usb 132GB", 1, 20.00)
+);
+
+function creaTabla($array, $pdf){
+    $pdf->SetFont('Arial','B',15);
+    foreach ($array as $row) {
+        foreach ($row as $dato){
+            $pdf->Cell(40,10,$dato,1,0,'C',false);
+        }
+        $pdf->Ln();
+    }
+
+}
 
 
 
@@ -70,7 +115,7 @@ creaTabla($array,$pdf);
 
 $pdf->Output();
 
-function creaTabla($array, $pdf){
+function crearTabla($array, $pdf){
     $pdf->SetFont('Arial','B',15);
     $pdf->SetFillColor(1,100,255);
     $pdf->Cell(40,10,"PC",1,0,"C",true);
