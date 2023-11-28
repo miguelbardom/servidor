@@ -1,0 +1,37 @@
+
+
+id: 2023NO-004
+titulo: El Padrino
+director: Francis Ford Coppola
+anno: 1972
+genero: accion
+actores: Marlon Brando, Al Pacino
+duracion: 01:32:50
+sinopsis: 01234567890123456789012345678901234567890123456789
+
+id: 2023NO-004
+titulo: El Padrino
+director: Francis Ford Coppola
+anno: 1972
+genero: accion
+actores: Marlon Brando, Al Pacino
+duracion: 01:32:50
+sinopsis: 01234567890123456789012345678901234567890123456789
+
+id: 0000MM-000
+titulo: Titanic
+director: James Cameron
+anno: 1997
+genero: romance
+actores: Leonardo DiCaprio, Kate Winslet
+duracion: 01:32:50
+sinopsis: 01234567890123456789012345678901234567890123456789
+
+id: 0000MM-000
+titulo: Titanic
+director: James Cameron
+anno: 1984
+genero: terror
+actores: Leonardo DiCaprio, Kate Winslet
+duracion: 01:32:50
+sinopsis: 01234567890111111111111111111111111111111111111111111111111111111111111111111111111111111
