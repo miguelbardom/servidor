@@ -35,3 +35,12 @@ genero: terror
 actores: Leonardo DiCaprio, Kate Winslet
 duracion: 01:32:50
 sinopsis: 01234567890111111111111111111111111111111111111111111111111111111111111111111111111111111
+
+id: 2023NO-004
+titulo: El Padrino
+director: Francis Ford Coppola
+anno: 1972
+genero: comedia
+actores: Marlon Brando, Al Pacino
+duracion: 01:32:50
+sinopsis: 012345674890123456748901234567489012345674890123456748901234567489
