@@ -5,7 +5,7 @@ require('./confBD.php');
 try {
     $con = mysqli_connect(IP, USER, PASS, 'prueba');
     echo "Se ha conectado";
-    $rnombre = 'maria';
+    $rnombre = 'manolo';
     $redad = 30;
     //$sql = "insert into alumnos (nombre,edad) values ('".$rnombre."', ".$redad.")";
     //consultas preparadas
@@ -13,7 +13,7 @@ try {
     $stmt = mysqli_prepare($con,$sql);
     mysqli_stmt_bind_param($stmt, 'si', $rnombre, $redad);
     mysqli_stmt_execute($stmt);
-    
+
     mysqli_query($con,$sql);
 
     mysqli_close($con);
