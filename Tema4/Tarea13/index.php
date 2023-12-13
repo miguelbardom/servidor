@@ -22,11 +22,15 @@
     <?php
 
         $errores = array();
-        //si ha ido todo bien
+        
         if (pulsaInsertar() && validaFormulario($errores)) {
             echo "<pre>";
             print_r($_REQUEST);
 
+        }
+
+        if (pulsaCrearBD()){
+            crearBD();
         }
 
     ?>
@@ -65,6 +69,7 @@
         <p class="error">
             <?php
                 errores($errores,'longitudVacio');
+                errores($errores,'longitudVal');
             ?>
         </p>
 
