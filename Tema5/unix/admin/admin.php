@@ -1,0 +1,1 @@
+<h2>Esta página solo la ven los usuarios adminstradores</h2>
