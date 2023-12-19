@@ -27,7 +27,7 @@ function mostrarPaginasAlUsuario(){
     try{
         $DSN = 'mysql:host='.IP.';dbname='.BD;
         $con = new PDO($DSN,USER,PASS);
-        $sql = 'select codigoPagina from accede where codigoPerfil = ?'; perfil = $_SESSION['usuario']['perfil'];
+        $sql = 'select codigoPagina from accede where codigoPerfil = ?'; //perfil = $_SESSION['usuario']['perfil'];
         $stmt = $con->prepare($sql);
         $pass = sha1($pass);
         $stmt->execute([$user,$pass]);
