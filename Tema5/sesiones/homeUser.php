@@ -1,4 +1,5 @@
 <?
+    require('./funciones/conexionBD.php');
     session_start();
     if(!isset($_SESSION['usuario'])){
         $_SESSION['error'] = 'No tiene permisos para entrar en PaginaUser';
@@ -18,7 +19,16 @@
     <h1>Página User</h1>
     <?
         echo "Bienvenido " .$_SESSION['usuario']['nombre'];
-        echo "Puedes acceder a";
+        $paginas = misPaginas();
+        echo "<br>";
+        if(isset($_SESSION['error'])){
+            echo $_SESSION['error'];
+        }
+
+        echo "<h2>Las páginas que puede visitar son: </h2>";
+        foreach ($paginas as $value) {
+            echo "<a href='./".$value."'>".$value."</a><br>";
+        }
     ?>
     <p></p>
     <a href="./logout.php">Cerrar sesión</a>
