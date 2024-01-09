@@ -1,0 +1,13 @@
+.izq{
+    display: block;
+    float: left;
+}
+
+.dcha{
+    display: block;
+    float: right;
+}
+
+.dcha img{
+    display: block;
+}
