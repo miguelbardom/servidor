@@ -4,7 +4,9 @@ function insertarCookie($id){
     if(!($_GET[$id])){
         setcookie('id[0]',$_GET['id'],time()+(3600*24),"/");
     }else{
-        if($id)
+        if($id){
+
+        }
     }
 
     setcookie('id[0]',$_GET['id'],time()+(3600*24),"/");
@@ -28,6 +30,8 @@ function insertCookie($id){
         setcookie('id[2]',$_COOKIE['id'][1], time()+(3600*24),"/");
         setcookie('id[1]',$id, time()+(3600*24),"/");
     } else {
-        if($id == $_COOKIE['id'])
+        if($id == $_COOKIE['id']){
+            
+        }
     }
 }
