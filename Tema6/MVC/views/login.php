@@ -1,3 +1,8 @@
+<?
+    if(isset($sms)){
+        echo $sms;
+    }
+?>
 
 <form action="" method="post">
     <br>
@@ -25,7 +30,7 @@
                     errores($errores,'validado');
             ?>
     </p>
-    <input type="submit" value="Registro" name="Login_Registro">
     <input type="submit" value="Iniciar Sesión" name="Login_IniciarSesion">
+    <input type="submit" value="Registro" name="Login_Registro">
     <br><br>
 </form>

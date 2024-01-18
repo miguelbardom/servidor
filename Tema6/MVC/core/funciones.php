@@ -13,6 +13,26 @@ function validaFormulario(&$errores){
         return false;
 }
 
+function validaFormularioR(&$errores){
+    if(textVacio('cod')){
+        $errores['cod'] = "codUsuario vacío";
+    }
+    if(textVacio('nombre')){
+        $errores['nombre'] = "Nombre vacío";
+    }
+    if (textVacio('pass')) {
+        $errores['pass'] = "Contraseña vacía";
+    }
+    if (textVacio('pass1')) {
+        $errores['pass1'] = "Contraseña vacía";
+    }
+    passIgual($_REQUEST['pass'],$_REQUEST['pass1'],$errores);
+    if (count($errores)==0)
+        return true;
+    else
+        return false;
+}
+
 function textVacio($name){
     if (empty($_REQUEST[$name])) {
         return true;
@@ -31,7 +51,7 @@ function validado(){
         return true;
 }
 
-function passIgual($pass,$pass1){
+function passIgual($pass,$pass1,&$errores){
     if($pass !== $pass1){
         $errores['igual'] = "Las contraseñas no coinciden";
         return false;

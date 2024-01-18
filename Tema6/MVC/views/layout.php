@@ -32,6 +32,7 @@
                         echo "Bienvenido ".$_SESSION['usuario']->descUsuario;
                 ?>
                 <form action="" method="post">
+                    <input type="submit" value="Ver Citas" name="Citas_verCitas">
                     <input type="submit" value="Ver Perfil" name="User_verPerfil">
                     <input type="submit" value="Cerrar Sesión" name="logout">
                 </form>
