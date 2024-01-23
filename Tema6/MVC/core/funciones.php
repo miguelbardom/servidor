@@ -33,6 +33,22 @@ function validaFormularioR(&$errores){
         return false;
 }
 
+function validaFormularioNuevaCita(&$errores){
+    if(textVacio('especialista')){
+        $errores['especialista'] = "Especialista vacío";
+    }
+    if(textVacio('fecha')){
+        $errores['fecha'] = "Fecha vacío";
+    }
+    if (textVacio('motivo')) {
+        $errores['motivo'] = "Motivo vacío";
+    }
+    if (count($errores)==0)
+        return true;
+    else
+        return false;
+}
+
 function textVacio($name){
     if (empty($_REQUEST[$name])) {
         return true;
@@ -57,4 +73,10 @@ function passIgual($pass,$pass1,&$errores){
         return false;
     }
     return true;
+}
+
+function isAdmin(){
+    if($_SESSION['usuario']->perfil == 'administrador')
+        return true;
+    return false;
 }

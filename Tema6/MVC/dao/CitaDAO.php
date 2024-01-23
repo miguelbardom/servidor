@@ -48,7 +48,8 @@ class CitaDAO{
     public static function insert($cita){
         $sql = "insert into Cita (especialista,motivo,fecha,activo,paciente) values (?,?,?,?,?)";
         //insertar todos los atributos
-        $parametros = array($cita->especialista,
+        $parametros = array(
+            $cita->especialista,
             $cita->motivo,
             $cita->fecha,
             $cita->activo,
@@ -86,14 +87,14 @@ class CitaDAO{
             return true;
     }
 
-    public static function findByPaciente($paciente){
+    public static function findByPaciente($usuario){
         //return 1 objeto usuario
         $sql = "select * from Cita where paciente = ? and activo = 1 and fecha >= now()
          order by fecha";
-        $parametros = array($paciente->id);
+        $parametros = array($usuario->codUsuario);
         $result = FactoryBD::realizaConsulta($sql,$parametros);
-        
         $array_citas = array();
+
         while($citaStd = $result->fetchObject()){
             $cita = new Cita(
                 $citaStd->id,
@@ -109,14 +110,14 @@ class CitaDAO{
         return $array_citas;
     }
 
-    public static function findByPacienteH($paciente){
+    public static function findByPacienteH($usuario){
         //return 1 objeto usuario
         $sql = "select * from Cita where paciente = ? and activo = 1 and fecha < now()
          order by fecha desc";
-        $parametros = array($paciente->codUsuario);
+        $parametros = array($usuario->codUsuario);
         $result = FactoryBD::realizaConsulta($sql,$parametros);
-        
         $array_citas = array();
+
         while($citaStd = $result->fetchObject()){
             $cita = new Cita(
                 $citaStd->id,

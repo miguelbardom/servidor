@@ -23,6 +23,12 @@ if(isset($_REQUEST['login']))
 } elseif(isset($_REQUEST['Citas_verCitas'])){
     $_SESSION['vista'] = VIEW.'verCitas.php';
     $_SESSION['controller'] = CON.'CitasController.php';
+} elseif(isset($_REQUEST['Citas_verTodasCitas'])){
+    $_SESSION['vista'] = VIEW.'verCitas.php';
+    $_SESSION['controller'] = CON.'CitasController.php';
+} elseif(isset($_REQUEST['Cita_ver'])){
+    $_SESSION['vista'] = VIEW.'verCita.php';
+    $_SESSION['controller'] = CON.'CitasController.php';
 }
 
 if(isset($_SESSION['controller'])){

@@ -72,8 +72,7 @@ class UserDAO{
         );
 
         $result = FactoryBD::realizaConsulta($sql,$parametros);
-        if($result->rowCount() > 0)
-            return true;
+        return true;
     }
 
     public static function cambioContraseña($usuario){
