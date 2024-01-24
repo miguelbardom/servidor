@@ -28,7 +28,7 @@ if(isset($_REQUEST['Login_IniciarSesion'])){
             $_REQUEST['cod'],
             $_REQUEST['nombre'],
             $_REQUEST['pass'],
-            date(),
+            date()
         );
         if(UserDAO::insert($usuario)){
             //mandarlo a la vista
