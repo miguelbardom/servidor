@@ -11,19 +11,34 @@ class InstitutoController extends Base{
             case 'GET':
                 if(count($recursos)==2 && count($filtros) == 0){ //si tiene dos, sabemos que no tiene nada detras
                     $datos = InstitutoDAO::findAll();
-                } else if(count($recursos)==2 && count($filtros) == 0) {
-
+                } else if(count($recursos)==2 && count($filtros) > 0) {
+                    $datos = self::buscaConFiltros();
                 } else if(count($recursos)==3){
                     $datos = InstitutoDAO::findById($recursos[2]);
+                } else {
+                    self::response("HTTP/1.0 400 No está indicando los recursos necesarios");
                 }
                 $datos = json_encode($datos);
                 self::response('HTTP/1.0 200 OK', $datos);
                 break;
+
             case 'POST':
-                # code...
+                $datos = file_get_contents('php://input');
+                $datos = json_decode($datos, true);
+                if(isset($datos['nombre']) && isset($datos['localidad']) && isset($datos['telefono'])){
+                    $insti = new Instituto(
+                        null, $datos['nombre'], $datos['localidad'], $datos['telefono']
+                    );
+                    if(InstitutoDAO::insert($insti)){
+                        $insti = InstitutoDAO::findLast();
+                        $insti = json_encode($insti);
+                        self::response("HTTP/1.0 201 Insertado correctamente", $insti);
+                    }
+                }
                 break;
+
             case 'PUT':
-                # code...
+                self::put();
                 break;
             case 'DELETE':
                 # code...
@@ -42,6 +57,35 @@ class InstitutoController extends Base{
             if(!in_array($key, $permitidos)){
                 self::response("HTTP/1.0 400 No permite usar el parámetro: ".$key);
             }
+        }
+        return InstitutoDAO::findByFiltros($filtros);
+    }
+
+    public static function put(){
+        $recursos = self::divideURI();
+        if(count($recursos)==3){
+            $permitidos = ['nombre', 'localidad', 'telefono'];
+            $datos = file_get_contents('php://input');
+            $datos = json_decode($datos, true);
+            //verificar que los datos del body son los instituto
+            foreach ($datos as $key => $value) {
+                if(!in_array($key, $permitidos)){
+                    self::response("HTTP/1.0 400 No permite usar el parámetro: ".$key);
+                }
+            }
+            $insti = InstitutoDAO::findById($recursos[2]);
+            if(count($insti)==1){
+                $insti = (object)$insti[0];
+                
+                if(InstitutoDAO::update($insti)){
+                    self::response("HTTP/1.0 201 Actualizado correctamente", $insti);
+                }
+            } else {
+                self::response("HTTP/1.0 400 Está intentando modificar un instituto que no existe");
+            }
+            
+        } else {
+            self::response("HTTP/1.0 400 No ha indicado el id");
         }
     }
 }
