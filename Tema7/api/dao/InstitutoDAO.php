@@ -71,6 +71,23 @@ class InstitutoDAO{
             $instituto->telefono,
             $instituto->id
         );
+        $result = FactoryBD::realizaConsulta($sql,$parametros);
+        if($result->rowCount() > 0){
+            return true;
+        }
+    }
+
+    public static function delete($id){
+        $sql = "delete from institutos where id = ?";
+        $parametros = array($id);
+        $result = FactoryBD::realizaConsulta($sql,$parametros);
+
+        $result->fetchAll(PDO::FETCH_ASSOC);
+        if($result->rowCount() > 0){
+            return true;
+        } else {
+            return false;
+        }
     }
 
 

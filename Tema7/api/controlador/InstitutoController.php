@@ -41,7 +41,15 @@ class InstitutoController extends Base{
                 self::put();
                 break;
             case 'DELETE':
-                # code...
+                if(count($recursos) == 3){
+                    if(InstitutoDAO::delete($recursos[2])){
+                        self::response("HTTP/1.0 201 Recurso eliminado correctamente");
+                    } else{
+                        self::response("HTTP/1.0 200 No se ha encontrado el id");
+                    }
+                } else {
+                    self::response("HTTP/1.0 400 No se ha introducido el id");
+                }
                 break;
             default:
                 self::response("HTTP/1.0 400 No permite el método utilizado");
@@ -67,6 +75,10 @@ class InstitutoController extends Base{
             $permitidos = ['nombre', 'localidad', 'telefono'];
             $datos = file_get_contents('php://input');
             $datos = json_decode($datos, true);
+            if($datos == null){
+                self::response("HTTP/1.0 400 El Json del body no está bien formado");
+            }
+
             //verificar que los datos del body son los instituto
             foreach ($datos as $key => $value) {
                 if(!in_array($key, $permitidos)){
@@ -76,8 +88,13 @@ class InstitutoController extends Base{
             $insti = InstitutoDAO::findById($recursos[2]);
             if(count($insti)==1){
                 $insti = (object)$insti[0];
-                
+                // parametros a modificar
+                foreach ($datos as $key => $value) {
+                    $insti->$key = $value;
+                }
+
                 if(InstitutoDAO::update($insti)){
+                    $insti = json_encode($insti);
                     self::response("HTTP/1.0 201 Actualizado correctamente", $insti);
                 }
             } else {
