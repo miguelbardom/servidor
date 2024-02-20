@@ -9,13 +9,20 @@
 <br>
 
 <form action="" method="post">
-    <label for="">Palabra: 
-        <input type="text" name="palabra" id="palabra" readonly>
+    <label for="">Palabra: </label>
+    <label name="palabra" id="palabra">
+        <?
+            print_r($_SESSION['palabra'][0]);
+        ?>
     </label>
     <br>
-    <label for="">Oculta: 
-        <input type="text" name="oculta" id="oculta" readonly>
+    <label for="">Oculta: </label>
+    <label name="oculta" id="oculta">
+        <?
+
+        ?>
     </label>
+    <br>
     <input type="text" name="letra" id="letra">
     <input type="submit" value="Prueba Letra" name="Prueba_Letra">
 </form>

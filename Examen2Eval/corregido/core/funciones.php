@@ -30,7 +30,7 @@ function validado(){
     if(isset($_SESSION['usuario']))
         return true;
 }
-
+/*
 function passIgual($pass,$pass1,&$errores){
     if($pass !== $pass1){
         $errores['igual'] = "Las contraseñas no coinciden";
@@ -38,9 +38,13 @@ function passIgual($pass,$pass1,&$errores){
     }
     return true;
 }
-
+*/
 function isAdmin(){
     if($_SESSION['usuario']->perfil == 'administrador')
         return true;
     return false;
+}
+
+function crearOculta(){
+    
 }

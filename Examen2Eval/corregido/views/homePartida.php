@@ -1,13 +1,3 @@
-<?
-if(isset($_SESSION['controller'])){
-    require($_SESSION['controller']);
-}
-
-if($_SESSION['vista'] = VIEW.'homePartida.php'){
-    $_SESSION['controller'] = CON.'PartidaController.php';
-}
-?>
-
 <h4>
     Bienvenido al Juego del Ahorcado!
 </h4>

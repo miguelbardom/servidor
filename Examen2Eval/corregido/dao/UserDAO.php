@@ -76,10 +76,10 @@ class UserDAO{
                 $usuarioStd->password,
                 $usuarioStd->tipo
             );
-            // echo "LOGIN CORRECTO<br>";
+            // echo "LOGIN CORRECTO";
             return $usuario;
         } else {
-            echo "Login incorrecto";
+            // echo "Login incorrecto";
             return null;
         }
     }
