@@ -14,6 +14,7 @@ require('./config/confBD.php');
 require('./dao/FactoryBD.php');
 require('./models/User.php');
 require('./dao/UserDAO.php');
+require('./models/Palabra.php');
 require('./dao/PalabraDAO.php');
 require('./models/Estadistica.php');
 require('./dao/PartidaDAO.php');

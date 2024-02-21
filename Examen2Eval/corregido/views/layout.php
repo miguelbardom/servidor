@@ -25,11 +25,11 @@
                 <?php
                     if(validado()){
                         echo "Bienvenido ".$_SESSION['usuario']->username;
-                        ?>
-                        <form action="" method="post">
-                        <input type="submit" value="Cerrar Sesión" name="Login_CerrarSesion">
-                        </form>
-                        <?
+                ?>
+                <form action="" method="post">
+                    <input type="submit" value="Cerrar Sesión" name="Login_CerrarSesion">
+                </form>
+                <?
                     }else{
                     }
                 ?>

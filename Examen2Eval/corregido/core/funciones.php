@@ -66,7 +66,7 @@ function compararLetras(){
             // echo "igual";
             $oculta[$key] = $l;
             $_SESSION['oculta'] = $oculta;
-            $_SESSION['derrota'] = '';
+            $_SESSION['resultado'] = '';
             $letraEncontrada = true;
         } else {
             // echo "distinta";

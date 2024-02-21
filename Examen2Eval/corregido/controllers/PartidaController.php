@@ -25,5 +25,8 @@ elseif (isset($_SESSION['palabra'])) {
 if (isset($_REQUEST['Home_Partida'])){
     $_SESSION['vista'] = VIEW.'homePartida.php';
     $_SESSION['controlador'] = CON.'HomeController.php';
+    unset($_SESSION['palabra']);
+    unset($_SESSION['oculta']);
+    unset($_SESSION['resultado']);
     require $_SESSION['controlador'];
 }
