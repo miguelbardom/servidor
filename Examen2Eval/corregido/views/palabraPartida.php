@@ -19,7 +19,7 @@
     <label for="">Oculta: </label>
     <label name="oculta" id="oculta">
         <?
-
+            echo implode('', $_SESSION['oculta']);
         ?>
     </label>
     <br>

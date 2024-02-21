@@ -4,10 +4,15 @@
 if (!isset($_SESSION['palabra'])) {
     $palabra = PalabraDAO::findAleatorio();
     $_SESSION['palabra'] = $palabra;
-    function ocultarPalabra(){
-        
+    function ocultarPalabra($palabra){
+        $oculta = [];
+        $arrayPalabra = str_split($palabra[0]['palabra']);
+        foreach ($arrayPalabra as $letra) {
+            array_push($oculta, '*');
+        }
+        return $oculta;
     }
-    $_SESSION['oculta'] = $oculta;
+    $_SESSION['oculta'] = ocultarPalabra($palabra);
 }
 //guardo en la sesion la palabra correcta
 //guardo en la sesion los intentos (6)
