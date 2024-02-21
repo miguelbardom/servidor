@@ -11,11 +11,11 @@ if(isset($_REQUEST['Login_IniciarSesion'])){
             $_SESSION['usuario'] = $usuario;
             $_SESSION['vista'] = VIEW.'homePartida.php';
             $_SESSION['controlador'] = CON.'HomeController.php';
-            require  $_SESSION['controlador'];
+            require $_SESSION['controlador'];
             // unset($_SESSION['controller']);
         } else {
             $errores['validado'] = "No existe el usuario y contraseña";
         }
         //home, pero con modificaciones
     }
-} 
+}

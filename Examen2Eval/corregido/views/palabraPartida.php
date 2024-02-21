@@ -12,7 +12,7 @@
     <label for="">Palabra: </label>
     <label name="palabra" id="palabra">
         <?
-            print_r($_SESSION['palabra'][0]);
+            print_r($_SESSION['palabra'][0]['palabra']);
         ?>
     </label>
     <br>
