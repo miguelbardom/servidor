@@ -45,6 +45,48 @@ function isAdmin(){
     return false;
 }
 
-function crearOculta(){
-    
+function ocultarPalabra($palabra){
+    $oculta = [];
+    $arrayPalabra = str_split($palabra[0]['palabra']);
+    foreach ($arrayPalabra as $l) {
+        array_push($oculta, '*');
+    }
+    return $oculta;
+}
+
+function compararLetras(){
+    $letra = $_REQUEST['letra'];
+    $arrayPalabra = str_split($_SESSION['palabra'][0]['palabra']);
+    // print_r ($arrayPalabra);
+    $oculta = $_SESSION['oculta'];
+    // print_r($oculta);
+    $letraEncontrada = false;
+    foreach ($arrayPalabra as $key => $l) {
+        if ($l === $letra) {
+            // echo "igual";
+            $oculta[$key] = $l;
+            $_SESSION['oculta'] = $oculta;
+            $_SESSION['derrota'] = '';
+            $letraEncontrada = true;
+        } else {
+            // echo "distinta";
+        }
+    }
+    return $letraEncontrada;
+}
+
+function controlarIntentos($letraEncontrada){
+    if (!$letraEncontrada) {
+        if ($_SESSION['intentos'] > 0) {
+            $_SESSION['intentos']--;
+            $_SESSION['resultado'] = '';
+        } elseif ($_SESSION['intentos'] == 0) {
+            $derrota = 'PERDISTE! Has superado el número de intentos';
+            $_SESSION['resultado'] = $derrota;
+        }
+    } elseif ($letraEncontrada) {
+        if (!in_array('*', $_SESSION['oculta'])) {
+            $_SESSION['resultado'] = 'ENHORABUENA, ACERTASTE!';
+        }
+    }
 }

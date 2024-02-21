@@ -26,8 +26,8 @@
     <input type="text" name="letra" id="letra">
     <input type="submit" value="Prueba Letra" name="Prueba_Letra">
         <?
-            // if(isset($_REQUEST['Prueba_Letra'])){
-            //     print_r($_REQUEST['letra']);
-            // }
+            if(isset($_SESSION['resultado'])){
+                echo $_SESSION['resultado'];
+            }
         ?>
 </form>
