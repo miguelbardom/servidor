@@ -1,10 +1,10 @@
 
-
-<h4>
+<br>
+<h3>
     Bienvenido al Juego del Ahorcado!
-</h4>
+</h3>
 <form action="" method="post">
-    <input type="submit" value="Cerrar Sesión" name="Login_CerrarSesion">
+    <input type="submit" value="Home" name="Home_Partida">
 </form>
 <br>
 
@@ -25,4 +25,9 @@
     <br>
     <input type="text" name="letra" id="letra">
     <input type="submit" value="Prueba Letra" name="Prueba_Letra">
+        <?
+            // if(isset($_REQUEST['Prueba_Letra'])){
+            //     print_r($_REQUEST['letra']);
+            // }
+        ?>
 </form>
