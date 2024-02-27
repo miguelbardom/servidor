@@ -31,13 +31,13 @@
     <tbody>
         <?
 
-        foreach ($institutos as $insti) {
+        foreach ($institutos as $c) {
             echo "<tr>";
 
-                echo "<td>".$insti['id']."</td>";
-                echo "<td>".$insti['nombre']."</td>";
-                echo "<td>".$insti['localidad']."</td>";
-                echo "<td>".$insti['telefono']."</td>";
+                echo "<td>".$c['id']."</td>";
+                echo "<td>".$c['nombre']."</td>";
+                echo "<td>".$c['localidad']."</td>";
+                echo "<td>".$c['telefono']."</td>";
 
             echo "</tr>";
         }
