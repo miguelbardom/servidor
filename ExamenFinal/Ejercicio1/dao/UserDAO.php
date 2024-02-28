@@ -3,10 +3,23 @@
 class UserDAO{
 
     public static function crearUsuario($user, $token){
-        $sql = "insert into Usuarios (user, token) values (?,?)";
-        $parametros = array($user, $token);
-        $result = FactoryBD::realizaConsulta($sql,$parametros);
-        return true;
+        $array = json_encode(array($user,$token));
+    $ch = curl_init();
+
+    curl_setopt($ch, CURLOPT_URL, URI_API."user");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $array);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, 
+        array('Content-Type: application/json', 'Content-length: ' . strlen($array)));
+
+    $response = curl_exec($ch);
+    $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    if($http_code != 201) {
+        echo "No se ha podido insertar el recurso";
+    }
+    curl_close($ch);
+    return $response;
     }
 
     public static function validarUsuario($user, $token){

@@ -34,7 +34,7 @@ class UserDAO{
 
     public static function findCaducaByUser($user){
         //return 1 objeto usuario
-        $sql = "select caduca from Usuarios where user = ?"; // and caduca < now()
+        $sql = "select caduca from Usuarios where token = ? and caduca > now()"; // and caduca < now()
         $parametros = array($user);
         $result = FactoryBD::realizaConsulta($sql,$parametros);
         

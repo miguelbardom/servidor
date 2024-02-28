@@ -29,9 +29,9 @@ class CocheDAO{
     }
 
     public static function filtrarCoches($filtro) {
-        $sql = "select * from CochesDeSegundaMano where marca like ?";
+        $sql = "select * from CochesDeSegundaMano where marca like ? or modelo like ? or descripcion like ?";
         $filtro = '%'.$filtro.'%';
-        $parametros = array($filtro);
+        $parametros = array($filtro,$filtro,$filtro);
         $result = FactoryBD::realizaConsulta($sql,$parametros);
     
         $array_coches = array();
