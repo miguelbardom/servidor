@@ -15,7 +15,7 @@
                     errores($errores,'email');
             ?>
     </p>
-    <label for="pass">Token:
+    <label for="pass">Password:
         <input type="password" name="pass" id="pass">
     </label>
     <p class="error">
