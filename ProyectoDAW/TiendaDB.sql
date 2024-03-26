@@ -1,6 +1,6 @@
 -- Crear la base de datos si no existe
-CREATE DATABASE IF NOT EXISTS TiendaDB;
-USE TiendaDB;
+CREATE DATABASE IF NOT EXISTS TiendaProyecto;
+USE TiendaProyecto;
 
 -- Crear la tabla de perfiles
 CREATE TABLE Perfiles (
@@ -16,26 +16,28 @@ INSERT INTO Perfiles (idPerfil, nombre) VALUES
 CREATE TABLE Usuarios (
     idUsuario INT PRIMARY KEY,
     nombreCompleto VARCHAR(100) NOT NULL,
+    --apellido?
     user VARCHAR(50) UNIQUE NOT NULL,
     pass VARCHAR(255) NOT NULL,
     email VARCHAR(150) UNIQUE NOT NULL,
     fechaNacimiento DATE,
     --dinero DECIMAL(10,2) NOT NULL,
     idPerfil INT DEFAULT 1, --valor por defecto usuario normal
-    FOREIGN KEY (idPerfil) REFERENCES Perfiles(idPerfil),
-    --CHECK (CHAR_LENGTH(pass) >= 8 AND pass REGEXP '^(?=.*[a-z])(?=.*[0-9])')
+    FOREIGN KEY (idPerfil) REFERENCES Perfiles(idPerfil)
 );
+    --CHECK (CHAR_LENGTH(pass) >= 8 AND pass REGEXP '^(?=.*[a-z])(?=.*[0-9])')
 
 -- Crear la tabla de productos
 CREATE TABLE Productos (
     codProducto INT PRIMARY KEY,
     descProducto VARCHAR(255) NOT NULL,
     precio DECIMAL(10, 2) NOT NULL,
-    stock INT NOT NULL,
-    estado BOOLEAN activo NOT NULL DEFAULT true,
+    --stock INT NOT NULL,
+    --activo BOOLEAN NOT NULL DEFAULT true,-- tambien es lioso
     imagen_url VARCHAR(255),
     UNIQUE KEY (codProducto)
 );
+    --categoria VARCHAR(50) NOT NULL, ??
 --blob para img ?
 
 -- Crear la tabla de transacciones
@@ -45,23 +47,23 @@ CREATE TABLE Transacciones (
     vendedor VARCHAR(50) NOT NULL,
     fechaTransaccion DATETIME NOT NULL,
     codProducto INT NOT NULL,
-    cantidad INT DEFAULT 1,
-    precioTotal DECIMAL(10, 2) NOT NULL,
-    --estado ENUM('pendiente', 'completada', 'cancelada') NOT NULL,
+    precioTotal DECIMAL(10, 2) NOT NULL,-- ?
     FOREIGN KEY (comprador) REFERENCES Usuarios(user),
     FOREIGN KEY (vendedor) REFERENCES Usuarios(user),
     FOREIGN KEY (codProducto) REFERENCES Productos(codProducto)
 );
+    --cantidad INT DEFAULT 1,
+    --estado ENUM('pendiente', 'completada', 'cancelada') NOT NULL,
 
 -- Tabla para el chat?
 CREATE TABLE Mensajes (
-    idMensaje INT PRIMARY KEY AUTO_INCREMENT,
-    idTransaccion INT NOT NULL,
+    idMensaje INT PRIMARY KEY AUTO_INCREMENT,-- idConversacion?
+    codProducto INT NOT NULL,
     emisor VARCHAR(50) NOT NULL,
     receptor VARCHAR(50) NOT NULL,
     contenido TEXT NOT NULL,
     fechaEnvio TIMESTAMP NOT NULL,
-    FOREIGN KEY (idTransaccion) REFERENCES Transacciones(idTransaccion),
+    FOREIGN KEY (codProducto) REFERENCES Productos(codProducto),-- antes lo tenia con idTransaccion
     FOREIGN KEY (emisor) REFERENCES Usuarios(user),
     FOREIGN KEY (receptor) REFERENCES Usuarios(user)
 );

@@ -1,8 +1,8 @@
 <?php
 
 function validaFormulario(&$errores){
-    if(textVacio('email')){
-        $errores['email'] = "Email vacío";
+    if(textVacio('user')){
+        $errores['user'] = "Usuario vacío";
     }
     if (textVacio('pass')) {
         $errores['pass'] = "Contraseña vacía";
@@ -14,8 +14,8 @@ function validaFormulario(&$errores){
 }
 
 function validaRegistro(&$errores){
-    if(textVacio('email')){
-        $errores['email'] = "Email vacío";
+    if(textVacio('user')){
+        $errores['user'] = "Usuario vacío";
     }
     if (count($errores)==0)
         return true;
