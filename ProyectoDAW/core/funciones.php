@@ -1,6 +1,6 @@
 <?php
 
-function validaFormulario(&$errores){
+function validaLogin(&$errores){
     if(textVacio('user')){
         $errores['user'] = "Usuario vacío";
     }
@@ -14,8 +14,23 @@ function validaFormulario(&$errores){
 }
 
 function validaRegistro(&$errores){
+    if(textVacio('nombre')){
+        $errores['nombre'] = "Nombre vacío";
+    }
+    if(textVacio('apellidos')){
+        $errores['apellidos'] = "Apellidos vacío";
+    }
     if(textVacio('user')){
         $errores['user'] = "Usuario vacío";
+    }
+    if (textVacio('pass')) {
+        $errores['pass'] = "Contraseña vacía";
+    }
+    if (textVacio('email')) {
+        $errores['email'] = "Email vacío";
+    }
+    if (textVacio('fecha_nacimiento')) {
+        $errores['fecha_nacimiento'] = "Fecha de nacimiento vacía";
     }
     if (count($errores)==0)
         return true;
@@ -39,12 +54,4 @@ function errores($errores,$name){
 function validado(){
     if(isset($_SESSION['usuario']))
         return true;
-}
-
-function generarToken($length) {
-    $str = random_bytes($length);
-    $str = base64_encode($str);
-    $str = str_replace(["+", "/", "="], "", $str);
-    $str = substr($str, 0, $length);
-    return $str;
 }

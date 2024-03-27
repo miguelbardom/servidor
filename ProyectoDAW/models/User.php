@@ -1,17 +1,26 @@
 <?
 
 class User{
-    private $id;
+    private $idUsuario;
+    private $nombre;
+    private $apellidos;
     private $user;
-    private $token;
-    private $caduca;
+    private $pass;
+    private $email;
+    private $fechaNacimiento;
+    private $idPerfil;
 
 
-    function __construct($id,$user,$token,$caduca){
-        $this->id = $id;
+
+    function __construct($idUsuario,$nombre,$apellidos,$user,$pass,$email,$fechaNacimiento,$idPerfil){
+        $this->idUsuario = $idUsuario;
+        $this->nombre = $nombre;
+        $this->apellidos = $apellidos;
         $this->user = $user;
-        $this->token = $token;
-        $this->caduca = $caduca;
+        $this->pass = $pass;
+        $this->email = $email;
+        $this->fechaNacimiento = $fechaNacimiento;
+        $this->idPerfil = $idPerfil;
     }
 
     public function __get($att){

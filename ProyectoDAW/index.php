@@ -10,12 +10,17 @@ if (isset($_REQUEST['Home_Login'])) {
     $_SESSION['controlador'] = CON.'LoginController.php';
     require $_SESSION['controlador'];
 }
-elseif (isset($_REQUEST['Home_Registro'])) {
+ elseif (isset($_REQUEST['Home_Registro'])) {
     $_SESSION['vista'] = VIEW.'registro.php';
     $_SESSION['controlador'] = CON.'RegistroController.php';
     require $_SESSION['controlador'];
 }
-elseif (isset($_REQUEST['Home_Logout'])) {
+ elseif (isset($_REQUEST['Home_Perfil'])) {
+    $_SESSION['vista'] = VIEW.'perfil.php';
+    $_SESSION['controlador'] = CON.'PerfilController.php';
+    require $_SESSION['controlador'];
+}
+ elseif (isset($_REQUEST['Home_Logout'])) {
     session_destroy();
     header('Location: ./index.php');
     exit;
@@ -23,13 +28,13 @@ elseif (isset($_REQUEST['Home_Logout'])) {
 if (isset($_REQUEST['Home_Logo'])) {
     $_SESSION['vista'] = VIEW.'home.php';
 }
-elseif (isset($_SESSION['controlador'])) {
+ elseif (isset($_SESSION['controlador'])) {
     require $_SESSION['controlador'];
 }
-else if(!isset($_SESSION['usuario'])){
+ else if(!isset($_SESSION['usuario'])){
     $_SESSION['vista'] = VIEW .'home.php';
 }
-else {
+ else {
     // require $_SESSION['controlador'];
 }
 

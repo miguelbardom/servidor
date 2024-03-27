@@ -14,15 +14,15 @@ INSERT INTO Perfiles (idPerfil, nombre) VALUES
 
 -- Crear la tabla de usuarios
 CREATE TABLE Usuarios (
-    idUsuario INT PRIMARY KEY,
-    nombreCompleto VARCHAR(100) NOT NULL,
-    --apellido?
+    idUsuario INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(20) NOT NULL,
+    apellidos VARCHAR(50) NOT NULL,
     user VARCHAR(50) UNIQUE NOT NULL,
     pass VARCHAR(255) NOT NULL,
     email VARCHAR(150) UNIQUE NOT NULL,
     fechaNacimiento DATE,
     --dinero DECIMAL(10,2) NOT NULL,
-    idPerfil INT DEFAULT 1, --valor por defecto usuario normal
+    idPerfil INT DEFAULT 2, --valor por defecto usuario normal
     FOREIGN KEY (idPerfil) REFERENCES Perfiles(idPerfil)
 );
     --CHECK (CHAR_LENGTH(pass) >= 8 AND pass REGEXP '^(?=.*[a-z])(?=.*[0-9])')
@@ -78,7 +78,10 @@ CREATE TABLE Mensajes (
 
 
 -- INSERT INTO Usuarios (pass) values (sha1('miguel'));
--- Al crear un usuario en la aplicación, se crea un usuario en la bd?
+
+-- Crear usuario BD
+INSERT INTO Usuarios (nombre, apellidos, user, pass, email, fechaNacimiento)
+VALUES ('Miguel', 'Barba', 'miguel', 'miguel', 'miguel@gmail.com', '1999-01-15');
 
 
 -- Actualizar el estado de un producto a 'inactivo'

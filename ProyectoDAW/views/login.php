@@ -16,7 +16,6 @@
                 <div class="card-body text-center">
 
                     <form action="" method="post" class="text-center">
-                        <br>
 
                         <!-- <label for="email">Usuario: -->
                         <input type="text" name="user" id="user" class="form-control" placeholder="Usuario">
@@ -45,15 +44,15 @@
                             ?>
                         </p>
 
-                        <div class="row mt-3 mx-2">
+                        <!-- <div class="row mt-3 mx-2">
                             <div class="col-6">
                                 <input class="form-check-input" type="checkbox" name="" id="recordar">
                                 <label class="form-check-label" for="recordar">Recordar contraseña</label>
                             </div>
                             <div class="col-6">
-                                <div class="link-primary no-decoration text-end">Olvidé mi contraseña</div>
+                                <div class="link-primary no-decoration text-end">He olvidado mi contraseña</div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <br>
                         <input type="submit" value="Login" name="Login_IniciarSesion" class="btn btn-primary">

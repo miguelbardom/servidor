@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TRADE2SHOP</title>
+    <title>TRADE2Shop</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="webroot/css/style.css">
@@ -32,10 +32,10 @@
 
         <div class="logo p-4 col-2 mx-auto d-flex align-items-center">
             <form action="" method="post">
-                <a href="#" class="nav-link" name="Home_Logo">
+                <button href="" class="nav-link" name="Home_Logo">
                     <img class="img-fluid" src="" alt="">
-                    <h1 style="display: flex; justify-content: center; text-align: center; color: white;">TRADE2SHOP</h1>
-                </a>
+                    <h1 style="display: flex; justify-content: center; text-align: center; color: white;">TRADE2<i>Shop</i></h1>
+                </button>
             </form>
         </div>
 
@@ -95,13 +95,37 @@
             <div class="container-fluid">
                 <div class="collapse navbar-collapse show" id="navbarWithDropdown">
                     <form action="" method="post" class="navbar-nav align-items-center">
-                        <li class="nav-item m-2">
+                        <?php
+                            if (!isset($_SESSION['usuario']))
+                            {
+                                echo '<li class="nav-item m-2">
+                                        <button class="btn btn-light" href="#" name="Home_Login">Inicia Sesión</button>
+                                    </li>
+                                    |
+                                    <li class="nav-item m-2">
+                                        <button class="btn btn-success" href="#" name="Home_Registro">Regístrate</button>
+                                    </li>';
+                            } else {
+                                echo '<li class="nav-item m-2">
+                                        <button class="btn btn-light" href="#" name="Home_Perfil">Mi Perfil</button>
+                                    </li>
+                                    |
+                                    <li class="nav-item m-2">
+                                        <button class="btn btn-dark" href="#" name="Home_Logout">Cerrar Sesión</button>
+                                    </li>';
+                            }
+                        ?>
+                        
+                        <!-- <li class="nav-item m-2">
                             <button class="btn btn-light" href="#" name="Home_Login">Inicia Sesión</a>
                         </li>
                         |
                         <li class="nav-item m-2">
                             <button class="btn btn-success" href="#" name="Home_Registro">Regístrate</a>
                         </li>
+                        <li class="nav-item m-2">
+                            <button class="btn btn-dark" href="#" name="Home_Logout">Cerrar Sesión</a>
+                        </li> -->
                     </form>
                 </div>
             </div>
@@ -120,7 +144,7 @@
 
     <footer class="bg-primary pt-1">
         <div class="powered row justify-content-end text-white mt-3 me-2">
-            @ Powered by AccuWeather
+            @ Powered by TRADE2Shop
         </div>
     </footer>
 

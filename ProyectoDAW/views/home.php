@@ -1,8 +1,4 @@
 
-<div>
-    <h3>Productos</h3>
-</div>
-
 <div class="busqueda col-3 mx-auto text-center d-flex flex-row align-items-center row justify-content-end m-2">
     <form role="search" class="d-flex">
         <input class="form-control" type="search" placeholder="Search" aria-label="Search">
@@ -10,6 +6,10 @@
             <i class="fa-solid fa-magnifying-glass"></i>
         </button>
     </form>
+</div>
+
+<div>
+    <h3>Productos</h3>
 </div>
 
 <div class="cajaProductos d-flex flex-column">

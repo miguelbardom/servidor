@@ -9,17 +9,21 @@ class UserDAO{
         return true;
     }
 
-    public static function validarUsuario($user, $token){
-        $sql = "select * from Usuarios where user = ? and token = ?";
-        $parametros = array($user,$token);
+    public static function validarUsuario($user, $pass){
+        $sql = "select * from Usuarios where user = ? and pass = ?";
+        $parametros = array($user,$pass);
         $result = FactoryBD::realizaConsulta($sql,$parametros);
         if($result->rowCount()==1){
             $usuarioStd = $result->fetchObject();
             $usuario = new User(
-                $usuarioStd->id,
+                $usuarioStd->idUsuario,
+                $usuarioStd->nombre,
+                $usuarioStd->apellidos,
                 $usuarioStd->user,
-                $usuarioStd->token,
-                $usuarioStd->caduca
+                $usuarioStd->pass,
+                $usuarioStd->email,
+                $usuarioStd->fechaNacimiento,
+                $usuarioStd->idPerfil
             );
             // echo "LOGIN CORRECTO";
             return $usuario;
@@ -29,17 +33,4 @@ class UserDAO{
         }
     }
 
-    public static function findCaducaByUser($user){
-        //return 1 objeto usuario
-        $sql = "select caduca from Usuarios where user = ?"; // and caduca < now()
-        $parametros = array($user);
-        $result = FactoryBD::realizaConsulta($sql,$parametros);
-        
-        if($result->rowCount()==1){
-            $caduca = $result->fetchColumn();
-            return $caduca;
-        } else {
-            return null;
-        }
-    }
 }
