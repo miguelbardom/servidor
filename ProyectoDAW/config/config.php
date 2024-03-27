@@ -14,3 +14,5 @@ require('./config/confBD.php');
 require('./dao/FactoryBD.php');
 require('./models/User.php');
 require('./dao/UserDAO.php');
+require('./models/Producto.php');
+require('./dao/ProductoDAO.php');

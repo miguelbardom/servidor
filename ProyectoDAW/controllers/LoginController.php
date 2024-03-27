@@ -16,7 +16,7 @@ if(isset($_REQUEST['Home_Registro']))
         //iniciar sesion validada
         if($usuario != null){
             $_SESSION['user'] = $_REQUEST['user'];
-            $_SESSION['pass'] = $_REQUEST['pass'];
+            // $_SESSION['pass'] = $_REQUEST['pass'];
 
             $_SESSION['usuario'] = $usuario;
             $_SESSION['vista'] = VIEW.'home.php';

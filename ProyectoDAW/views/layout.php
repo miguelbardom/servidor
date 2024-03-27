@@ -13,10 +13,6 @@
             background-color: rgb(167, 100, 167);
         }
 
-        .error {
-            color: red;
-        }
-
         a{
             text-decoration: none;
         }

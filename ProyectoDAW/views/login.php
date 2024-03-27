@@ -18,7 +18,7 @@
                     <form action="" method="post" class="text-center">
 
                         <!-- <label for="email">Usuario: -->
-                        <input type="text" name="user" id="user" class="form-control" placeholder="Usuario">
+                        <input type="text" name="user" id="user" class="form-control" placeholder="Usuario" value="<?php recuerda('user','Login_IniciarSesion');?>">
                         <!-- </label> -->
                         <p class="error">
                             <?php

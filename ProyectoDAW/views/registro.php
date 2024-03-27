@@ -72,14 +72,14 @@
                                 <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" class="form-control" value="<?php recuerda('fecha_nacimiento','Registro_Registrar');?>">
                             </div>
                             <p class="error">
-                            <?php
-                            if (isset($errores))
-                                errores($errores, 'fecha_nacimiento');
-                            ?>
-                        </p>
+                                <?php
+                                if (isset($errores))
+                                    errores($errores, 'fecha_nacimiento');
+                                ?>
+                            </p>
                         </div>
 
-                        <p class="error">
+                        <p class="correcto">
                             <?php
                             if (isset($errores))
                                 errores($errores, 'validado');

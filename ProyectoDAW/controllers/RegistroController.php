@@ -2,12 +2,15 @@
 
 
 if(isset($_REQUEST['Registro_Registrar'])) {
-    // $email = $_REQUEST['email'];
-    //ver si email no esta vacio
+
     $errores = array();
     if(validaRegistro($errores)) {
         
-        if(UserDAO::comprobarUser($_REQUEST['user'])){
+        if(UserDAO::comprobarUser($_REQUEST['user']) && UserDAO::comprobarEmail($_REQUEST['email'])) {
+            $errores['user'] = 'El usuario ya existe';
+            $errores['email'] = 'El email ya existe';
+        }
+         elseif(UserDAO::comprobarUser($_REQUEST['user'])){
             $errores['user'] = 'El usuario ya existe';
         }
          elseif(UserDAO::comprobarEmail($_REQUEST['email'])) {
@@ -16,13 +19,20 @@ if(isset($_REQUEST['Registro_Registrar'])) {
          elseif(!UserDAO::comprobarUser($_REQUEST['user']) && !UserDAO::comprobarEmail($_REQUEST['email'])) {
             //crear usuario
             $usuario = UserDAO::crearUsuarioNormal($_REQUEST['nombre'],$_REQUEST['apellidos'],$_REQUEST['user'],$_REQUEST['pass'],$_REQUEST['email'],$_REQUEST['fecha_nacimiento']);
-            $errores['validado'] = "Usuario registrado con éxito";
-            //pintar mensaje de verde
+            $errores['validado'] = "Usuario ".$_REQUEST['user']." registrado con éxito!\nYa puedes iniciar sesión";
         }
 
-
     } else {
-        // $errores['validado'] = "No existe el usuario y contraseña";
+        if(UserDAO::comprobarUser($_REQUEST['user']) && UserDAO::comprobarEmail($_REQUEST['email'])) {
+            $errores['user'] = 'El usuario ya existe';
+            $errores['email'] = 'El email ya existe';
+        }
+         elseif(UserDAO::comprobarUser($_REQUEST['user'])){
+            $errores['user'] = "El usuario ya existe";
+        }
+         elseif(UserDAO::comprobarEmail($_REQUEST['email'])) {
+            $errores['email'] = 'El email ya existe';
+        }
     }
 
 } 

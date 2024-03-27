@@ -1,6 +1,6 @@
 <?php
     include("./validarFormulario.php");
-
+    $ruta = "";
     if(count($_FILES)!=0){
         $ruta = "/var/www/servidor/Tema3/Tarea09/";
         
@@ -12,7 +12,7 @@
         }
     }
     echo $ruta;
-    function mostrarFoto(){
+    function mostrarFoto($ruta){
         return $ruta;
     }
 
@@ -33,7 +33,7 @@
         echo "<br>";
     ?>
     <img src="<?php
-    mostrarFoto();
+    mostrarFoto($ruta);
     ?>" alt="">Hola
 </body>
 </html>

@@ -29,15 +29,16 @@ CREATE TABLE Usuarios (
 
 -- Crear la tabla de productos
 CREATE TABLE Productos (
-    codProducto INT PRIMARY KEY,
-    descProducto VARCHAR(255) NOT NULL,
+    codProducto INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(50) NOT NULL,
+    categoria VARCHAR(50) NOT NULL,
     precio DECIMAL(10, 2) NOT NULL,
-    --stock INT NOT NULL,
-    --activo BOOLEAN NOT NULL DEFAULT true,-- tambien es lioso
-    imagen_url VARCHAR(255),
+    descripcion VARCHAR(255) NOT NULL,
+    imagen_url VARCHAR(255) NOT NULL,
     UNIQUE KEY (codProducto)
 );
-    --categoria VARCHAR(50) NOT NULL, ??
+    --stock INT NOT NULL,
+    --activo BOOLEAN NOT NULL DEFAULT true,-- tambien es lioso
 --blob para img ?
 
 -- Crear la tabla de transacciones
