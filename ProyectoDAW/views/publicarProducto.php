@@ -77,6 +77,13 @@
 
                         <br>
                         <input type="submit" value="Publicar" name="Producto_Publicar" class="btn btn-success">
+                        <?
+                            if(isset($_SESSION['producto'])) {
+                                echo "<input type='button' value='Ver Producto' name='Producto_VerProducto' class='btn btn-primary'>";
+                            } else {
+                                echo "";
+                            }
+                        ?>
 
                     </form>
 
@@ -85,3 +92,38 @@
         </div>
     </div>
 </div>
+<div class="modal" tabindex="-1" id="modalProducto">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Producto: <? $_REQUEST['nombre_produ']; ?></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <img src="<? $_SESSION['ruta_foto']; ?>">
+                <br>
+                <? $_REQUEST['precio_produ']; ?>
+                <br>
+                <? $_REQUEST['categoria_produ']; ?>
+                <br>
+                <? $_REQUEST['desc_produ']; ?>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Guardar cambios</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let btnVerProducto = document.querySelector("input[name='Producto_VerProducto']");
+        btnVerProducto.addEventListener("click", function() {
+            let myModal = new bootstrap.Modal(document.getElementById('modalProducto'));
+            myModal.show();
+        });
+    });
+</script>
+
+<script src="../webroot/js/verProducto.js"></script>

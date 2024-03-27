@@ -45,7 +45,7 @@ if(isset($_REQUEST['Registro_Registrar'])) {
  elseif (isset($_REQUEST['Home_Logo']))
 {
     $_SESSION['vista'] = VIEW.'home.php';
-    unset($_SESSION['controller']);
+    unset($_SESSION['controlador']);
     header('Location: ./index.php');
     exit;
 }

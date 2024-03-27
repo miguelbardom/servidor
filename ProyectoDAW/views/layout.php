@@ -35,7 +35,7 @@
             </form>
         </div>
 
-        <nav class="menuPrin col-5 navbar navbar-expand-lg mx-auto d-flex align-items-center"
+        <nav class="menuPrin col-4 navbar navbar-expand-lg mx-auto d-flex align-items-center"
             aria-label="Fourth navbar example">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -47,47 +47,28 @@
                 <div class="collapse navbar-collapse" id="navbarWithDropdown">
                     <ul class="navbar-nav align-items-center">
                         <li class="nav-item btn-primary">
-                            <a class="nav-link p-4 text-white" href="#">HOME</a>
+                            <a class="nav-link p-4 text-white" href="#">PRODUCTOS</a>
                         </li>
                         <li class="nav-item dropdown btn-primary">
                             <a class="nav-link dropdown-toggle p-4 text-white" href="#" id="navbarDropdownMenuLink"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                EL TIEMPO
+                                CATEGORÍAS
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="#">Moda y complementos</a></li>
+                                <li><a class="dropdown-item" href="#">Hogar</a></li>
+                                <li><a class="dropdown-item" href="#">Entretenimiento</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown btn-primary">
-                            <a class="nav-link dropdown-toggle p-4 text-white" href="#" id="navbarDropdownMenuLink"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                SERVICIOS CLIMÁTICOS
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown btn-primary">
-                            <a class="nav-link dropdown-toggle p-4 text-white" href="#" id="navbarDropdownMenuLink"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                CONÓCENOS
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
+                            <a class="nav-link p-4 text-white" href="#">CONTACTO</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
 
-        <nav class="menuLogin col-2 navbar-expand-lg align-items-center d-flex">
+        <nav class="menuLogin col-3 navbar-expand-lg align-items-center d-flex">
             <div class="container-fluid">
                 <div class="collapse navbar-collapse show" id="navbarWithDropdown">
                     <form action="" method="post" class="navbar-nav align-items-center">

@@ -22,7 +22,7 @@ if(isset($_REQUEST['Home_Registro']))
             $_SESSION['vista'] = VIEW.'home.php';
             // $_SESSION['controlador'] = CON.'HomeController.php';
             // require $_SESSION['controlador'];
-            unset($_SESSION['controller']);
+            unset($_SESSION['controlador']);
             header('Location: ./index.php');
             exit;
         } else {
@@ -33,7 +33,7 @@ if(isset($_REQUEST['Home_Registro']))
 
 if (isset($_REQUEST['Home_Logo'])){
     $_SESSION['vista'] = VIEW.'home.php';
-    unset($_SESSION['controller']);
+    unset($_SESSION['controlador']);
     header('Location: ./index.php');
     exit;
 }

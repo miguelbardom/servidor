@@ -30,12 +30,14 @@ CREATE TABLE Usuarios (
 -- Crear la tabla de productos
 CREATE TABLE Productos (
     codProducto INT PRIMARY KEY AUTO_INCREMENT,
+    --propietario VARCHAR(50) NOT NULL,
     nombre VARCHAR(50) NOT NULL,
     categoria VARCHAR(50) NOT NULL,
     precio DECIMAL(10, 2) NOT NULL,
     descripcion VARCHAR(255) NOT NULL,
     imagen_url VARCHAR(255) NOT NULL,
     UNIQUE KEY (codProducto)
+    --FOREIGN KEY (propietario) REFERENCES Usuarios(user),
 );
     --stock INT NOT NULL,
     --activo BOOLEAN NOT NULL DEFAULT true,-- tambien es lioso
