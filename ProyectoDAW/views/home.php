@@ -1,4 +1,10 @@
 
+<style>
+    img{
+        width: ;
+    }
+</style>
+
 <div class="busqueda col-3 mx-auto text-center d-flex flex-row align-items-center row justify-content-end m-2">
     <form role="search" class="d-flex">
         <input class="form-control" type="search" placeholder="Search" aria-label="Search">
@@ -20,7 +26,7 @@
                 <a href="" class="nav-link tituloCard fs-3 text-center">
                     WE LOVE OUR CUSTOMERS
                 </a>
-                <img class="img-articulo" src="https://cdn.wallapop.com/images/10420/ge/lz/__/c10420p991998681/i4811509449.jpg?pictureSize=W640">
+                <img class="img-articulo" src="https://hips.hearstapps.com/hmg-prod/images/chaqueton-cruzado-jack-and-jones-1605794750.jpg">
                 <p class="text-center">We are known to provide best possible service ever</p>
             </a>
         </div>
@@ -29,7 +35,7 @@
                 <a href="" class="nav-link tituloCard fs-3 text-center">
                     WE LOVE OUR CUSTOMERS
                 </a>
-                <img class="img-articulo" src="https://cdn.wallapop.com/images/10420/ge/lz/__/c10420p991998681/i4811509449.jpg?pictureSize=W640">
+                <img class="img-articulo" src="https://hips.hearstapps.com/hmg-prod/images/chaqueton-cruzado-jack-and-jones-1605794750.jpg">
                 <p class="text-center">We are known to provide best possible service ever</p>
             </a>
         </div>
@@ -38,7 +44,7 @@
                 <a href="" class="nav-link tituloCard fs-3 text-center">
                     WE LOVE OUR CUSTOMERS
                 </a>
-                <img class="img-articulo" src="https://cdn.wallapop.com/images/10420/ge/lz/__/c10420p991998681/i4811509449.jpg?pictureSize=W640">
+                <img class="img-articulo" src="https://hips.hearstapps.com/hmg-prod/images/chaqueton-cruzado-jack-and-jones-1605794750.jpg">
                 <p class="text-center">We are known to provide best possible service ever</p>
             </a>
         </div>

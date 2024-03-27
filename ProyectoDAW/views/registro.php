@@ -13,7 +13,7 @@
 
                     <form action="" method="post">
 
-                        <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre">
+                        <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" value="<?php recuerda('nombre','Registro_Registrar');?>">
                         <p class="error">
                             <?php
                             if (isset($errores))
@@ -21,7 +21,7 @@
                             ?>
                         </p>
 
-                        <input type="text" name="apellidos" id="apellidos" class="form-control" placeholder="Apellidos">
+                        <input type="text" name="apellidos" id="apellidos" class="form-control" placeholder="Apellidos" value="<?php recuerda('apellidos','Registro_Registrar');?>">
                         <p class="error">
                             <?php
                             if (isset($errores))
@@ -29,11 +29,12 @@
                             ?>
                         </p>
 
-                        <input type="text" name="user" id="user" class="form-control" placeholder="Usuario">
+                        <input type="text" name="user" id="user" class="form-control" placeholder="Usuario" value="<?php recuerda('user','Registro_Registrar');?>">
                         <p class="error">
                             <?php
                             if (isset($errores))
                                 errores($errores, 'user');
+                                // usuario ya registrado
                             ?>
                         </p>
 
@@ -42,27 +43,33 @@
                             <?php
                             if (isset($errores))
                                 errores($errores, 'pass');
+                                // errores($errores, 'passVal'); formato incorrecto
                             ?>
                         </p>
 
-                        <!-- <label for="email">Email -->
-                        <input type="email" name="email" id="email" class="form-control" placeholder="Email">
-                        <!-- </label> -->
+                        <input type="password" name="passRep" id="passRep" class="form-control" placeholder="Repetir contraseña">
+                        <p class="error">
+                            <?php
+                                if (isset($errores)){
+                                    errores($errores, 'passRep');
+                                    errores($errores, 'passRepVal');
+                                }
+                            ?>
+                        </p>
+
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Email" value="<?php recuerda('email','Registro_Registrar');?>">
                         <p class="error">
                             <?php
                             if (isset($errores))
                                 errores($errores, 'email');
+                                // email ya registrado
                             ?>
                         </p>
-
-                        <!-- <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" class="form-control"
-                            placeholder="Fecha de nacimiento">
-                        <p></p> -->
 
                         <div class="row mb-3">
                             <label for="fecha_nacimiento" class="col-sm-3 col-form-label col-form-label-sm fw-light">Fecha de nacimiento</label>
                             <div class="col-sm-9">
-                                <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" class="form-control">
+                                <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" class="form-control" value="<?php recuerda('fecha_nacimiento','Registro_Registrar');?>">
                             </div>
                             <p class="error">
                             <?php
@@ -72,14 +79,12 @@
                         </p>
                         </div>
 
-                        <!-- <p class="error">
+                        <p class="error">
                             <?php
-                            // if (isset($errores))
-                            //     errores($errores, 'validado');
+                            if (isset($errores))
+                                errores($errores, 'validado');
                             ?>
-                        </p> -->
-
-                        <!-- algo para recordar los datos si alguno es incorrecto!!!! -->
+                        </p>
 
                         <input type="submit" value="Registrar" name="Registro_Registrar" class="btn btn-success">
 
