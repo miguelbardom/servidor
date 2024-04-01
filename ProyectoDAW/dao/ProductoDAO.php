@@ -6,7 +6,7 @@ class ProductoDAO{
         $sql = "INSERT INTO Productos (propietario, nombre, categoria, precio, descripcion, imagen_url) VALUES (?,?,?,?,?,?)";
         $parametros = array($propietario,$nombre,$categoria,$precio,$descripcion,$imagen_url);
         $result = FactoryBD::realizaConsulta($sql,$parametros);
-        // return true;
+        
         if ($result !== false && $result->rowCount() == 1) {
             return true; // Retorna verdadero si la inserción fue exitosa
         } else {
@@ -16,17 +16,16 @@ class ProductoDAO{
     }
 
     public static function buscarUltimoRegistro($columna, $usuario) {
+        /*
         // Verifica si la columna es válida
         $columnasPermitidas = array('nombre', 'categoria', 'precio', 'descripcion', 'imagen_url');
         if (!in_array($columna, $columnasPermitidas)) {
-            return null; // Si la columna no es válida, retorna null
+            return null;
         }
-    
-        // Prepara la consulta SQL dinámica
+        */
         $sql = "SELECT $columna FROM Productos WHERE propietario = ? ORDER BY codProducto DESC LIMIT 1";
         $parametros = array($usuario);
     
-        // Realiza la consulta
         $result = FactoryBD::realizaConsulta($sql, $parametros);
     
         // Verifica si se encontraron resultados
@@ -35,8 +34,31 @@ class ProductoDAO{
             $valor = $result->fetchColumn();
             return $valor;
         } else {
-            return null; // Si no se encontraron resultados, retorna null
+            return null;
         }
+    }
+
+    public static function obtenerTodosProductos() {
+
+        $sql = "SELECT * FROM Productos";
+        $parametros = array();
+        $result = FactoryBD::realizaConsulta($sql,$parametros);
+
+        $array_productos = array();
+        while ($productoStd = $result->fetchObject()) {
+            $producto = new Producto(
+                $productoStd->codProducto,
+                $productoStd->propietario,
+                $productoStd->nombre,
+                $productoStd->categoria,
+                $productoStd->precio,
+                $productoStd->descripcion,
+                $productoStd->imagen_url
+            );
+            array_push($array_productos,$producto);
+        }
+        return $array_productos;
+
     }
 
 

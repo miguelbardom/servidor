@@ -96,17 +96,18 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Producto: <? echo $nombre_produ; ?></h5>
+                <h5 class="modal-title"><? echo $nombre_produ; ?></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
+                <p>Producto del usuario <? echo $_SESSION['user']; ?></p>
                 <img src="<? echo $ruta_foto; ?>" class="img-fluid">
-                <br>
-                <p><? echo $precio_produ; ?></p>
-                <br>
-                <p><? echo $categoria_produ; ?></p>
-                <br>
-                <p><? echo $desc_produ; ?></p>
+                <br><br>
+                <p>Precio: <? echo $precio_produ; ?>€</p>
+                <p>Categoría: <? echo $categoria_produ; ?></p>
+                <div>Descripción: 
+                    <br>
+                    <? echo $desc_produ; ?></div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

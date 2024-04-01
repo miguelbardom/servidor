@@ -52,7 +52,106 @@
 
 </div>
 
+<div class="modal" tabindex="-1" id="modalProducto">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><? echo $nombre_produ; ?></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Producto del usuario <? echo $_SESSION['user']; ?></p>
+                <img src="<? echo $ruta_foto; ?>" class="img-fluid">
+                <br><br>
+                <p>Precio: <? echo $precio_produ; ?>€</p>
+                <p>Categoría: <? echo $categoria_produ; ?></p>
+                <div>Descripción: 
+                    <br>
+                    <? echo $desc_produ; ?></div>
+                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Guardar cambios</button>
+            </div>
+        </div>
+    </div>
+</div>
 
+<?
+
+if (isset($_SESSION['productos'])) {
+    foreach ($_SESSION['productos'] as $key => $value) {
+
+        echo '<div class="card card1 p-5 mr-5">';
+        echo '<a href="">';
+        echo '<a href="" class="nav-link tituloCard fs-3">';
+        echo '<h5 class="card-title">' . $_SESSION['productos'][$key]->nombre . '</h5>';
+        echo '</a>';
+        echo '<p class="card-text">Producto del usuario ' . $_SESSION['productos'][$key]->propietario . '</p>';
+        echo '<img src="' . $_SESSION['productos'][$key]->imagen_url . '" class="img-fluid w-50">';
+        echo '<br><br>';
+        echo '<p class="card-text">Precio: ' . $_SESSION['productos'][$key]->precio . '€</p>';
+        echo '<p class="card-text">Categoría: ' . $_SESSION['productos'][$key]->categoria . '</p>';
+        echo '<div class="card-text">Descripción: <br>' . $_SESSION['productos'][$key]->descripcion . '</div>';
+        echo '</a>';
+        echo '</div>';
+
+
+        /*echo "<tr>";
+        echo "<td>". $_SESSION['productos'][$key]->propietario ."</td>";
+        echo "<td>". $_SESSION['productos'][$key]->nombre ."</td>";
+        echo "<td>". $_SESSION['productos'][$key]->categoria ."</td>";
+        echo "<td>". $_SESSION['productos'][$key]->precio ."</td>";
+        echo "<td>". $_SESSION['productos'][$key]->descripcion ."</td>";
+        echo "<td>". $_SESSION['productos'][$key]->imagen_url ."</td>";
+        echo "</tr>";*/
+    }
+} else {
+    exit('Error');
+}
+
+?>
+
+<div class="cajaProductos d-flex flex-column">
+
+    <div class="cajaCards m-5 d-flex flex-row">
+        <div class="card card1 p-5 mr-5">
+            <a href="">
+                <a href="" class="nav-link tituloCard fs-3">
+                    <h5 class="card-title"><? echo $nombre_produ; ?></h5>
+                </a>
+                <p class="card-text">Producto del usuario <? echo $_SESSION['user']; ?></p>
+                <img src="<? echo $ruta_foto; ?>" class="img-fluid card-img">
+                <br><br>
+                <p class="card-text">Precio: <? echo $precio_produ; ?>€</p>
+                <p class="card-text">Categoría: <? echo $categoria_produ; ?></p>
+                <div class="card-text">Descripción: 
+                    <br>
+                    <? echo $desc_produ; ?>
+                </div>
+            </a>
+        </div>
+        <div class="card card1 p-5 mr-5">
+            <a href="" class="">
+                <a href="" class="nav-link tituloCard fs-3 text-center">
+                    WE LOVE OUR CUSTOMERS
+                </a>
+                <img class="img-articulo" src="https://hips.hearstapps.com/hmg-prod/images/chaqueton-cruzado-jack-and-jones-1605794750.jpg">
+                <p class="text-center">We are known to provide best possible service ever</p>
+            </a>
+        </div>
+        <div class="card card1 p-5">
+            <a href="">
+                <a href="" class="nav-link tituloCard fs-3 text-center">
+                    WE LOVE OUR CUSTOMERS
+                </a>
+                <img class="img-articulo" src="https://hips.hearstapps.com/hmg-prod/images/chaqueton-cruzado-jack-and-jones-1605794750.jpg">
+                <p class="text-center">We are known to provide best possible service ever</p>
+            </a>
+        </div>
+    </div>
+
+</div>
 
 
 

@@ -5,6 +5,10 @@ require './config/config.php';
 //instanciar la sesion
 session_start();
 
+$productos = ProductoDAO::obtenerTodosProductos();
+$_SESSION['productos'] = $productos;
+
+
 if (isset($_REQUEST['Home_Login'])) {
     $_SESSION['vista'] = VIEW.'login.php';
     $_SESSION['controlador'] = CON.'LoginController.php';

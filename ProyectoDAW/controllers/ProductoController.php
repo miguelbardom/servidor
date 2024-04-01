@@ -9,23 +9,30 @@ if (isset($_REQUEST['Producto_Publicar'])) {
         if (subirFoto('img_produ')) {
             // $errores['img_produ'] = "Foto subida";
 
-            $producto = ProductoDAO::crearProducto($_SESSION['user'], $_REQUEST['nombre_produ'], $_REQUEST['categoria_produ'], $_REQUEST['precio_produ'], $_REQUEST['desc_produ'], $_SESSION['ruta_foto']);
-            $_SESSION['producto'] = $producto;
-            //hay que andarse con cuidado por aqui
-            // echo $_REQUEST['nombre_produ'];echo $_REQUEST['categoria_produ'];echo $_REQUEST['precio_produ'];echo $_REQUEST['desc_produ'];echo $_SESSION['ruta_foto'];
+            if (ProductoDAO::crearProducto($_SESSION['user'], $_REQUEST['nombre_produ'], $_REQUEST['categoria_produ'], $_REQUEST['precio_produ'], $_REQUEST['desc_produ'], $_SESSION['ruta_foto']))
+            {
+                $producto = ProductoDAO::crearProducto($_SESSION['user'], $_REQUEST['nombre_produ'], $_REQUEST['categoria_produ'], $_REQUEST['precio_produ'], $_REQUEST['desc_produ'], $_SESSION['ruta_foto']);
+                $_SESSION['producto'] = $producto;
 
-            $errores['validado'] = "Producto publicado con éxito!";
+                //hay que andarse con cuidado por aqui
+                
+                $errores['validado'] = "Producto publicado con éxito!";
+    
+                //crear variables para ver producto
+                $nombre_produ = ProductoDAO::buscarUltimoRegistro('nombre', $_SESSION['user']);
+                $categoria_produ = ProductoDAO::buscarUltimoRegistro('categoria', $_SESSION['user']);
+                $precio_produ = ProductoDAO::buscarUltimoRegistro('precio', $_SESSION['user']);
+                $desc_produ = ProductoDAO::buscarUltimoRegistro('descripcion', $_SESSION['user']);
+                $ruta_foto = ProductoDAO::buscarUltimoRegistro('imagen_url', $_SESSION['user']);
 
-            //crear variables para ver producto
-            $nombre_produ = ProductoDAO::buscarUltimoRegistro('nombre', $_SESSION['user']);
-            $categoria_produ = ProductoDAO::buscarUltimoRegistro('categoria', $_SESSION['user']);
-            $precio_produ = ProductoDAO::buscarUltimoRegistro('precio', $_SESSION['user']);
-            $desc_produ = ProductoDAO::buscarUltimoRegistro('descripcion', $_SESSION['user']);
-            $ruta_foto = ProductoDAO::buscarUltimoRegistro('imagen_url', $_SESSION['user']);
+                // echo $nombre_produ;echo $categoria_produ;echo $precio_produ;echo $desc_produ;echo $ruta_foto;
+                // $_SESSION['vista'] = VIEW . 'producto.php';
+            } else {
+                // error al crear producto
+                echo "error al crear producto";
+            }
             
-            // echo $nombre_produ;echo $categoria_produ;echo $precio_produ;echo $desc_produ;echo $ruta_foto;
 
-            // $_SESSION['vista'] = VIEW . 'producto.php';
         } else {
             $errores['img_produ'] = "La subida ha fallado";
         }
