@@ -96,17 +96,17 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Producto: <? $_REQUEST['nombre_produ']; ?></h5>
+                <h5 class="modal-title">Producto: <? $nombre_produ; ?></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-                <img src="<? $_SESSION['ruta_foto']; ?>">
+                <img src="<? $ruta_foto; ?>">
                 <br>
-                <? $_REQUEST['precio_produ']; ?>
+                <? $precio_produ; ?>
                 <br>
-                <? $_REQUEST['categoria_produ']; ?>
+                <? $categoria_produ; ?>
                 <br>
-                <? $_REQUEST['desc_produ']; ?>
+                <? $desc_produ; ?>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

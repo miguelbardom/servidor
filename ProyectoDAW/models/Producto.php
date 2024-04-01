@@ -2,6 +2,7 @@
 
 class Producto{
     private $codProducto;
+    private $propietario;
     private $nombre;
     private $categoria;
     private $precio;
@@ -10,8 +11,9 @@ class Producto{
 
 
 
-    function __construct($codProducto,$nombre,$categoria,$precio,$descripcion,$imagen_url){
+    function __construct($codProducto,$propietario,$nombre,$categoria,$precio,$descripcion,$imagen_url){
         $this->codProducto = $codProducto;
+        $this->propietario = $propietario;
         $this->nombre = $nombre;
         $this->categoria = $categoria;
         $this->precio = $precio;

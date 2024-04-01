@@ -9,11 +9,18 @@ if (isset($_REQUEST['Producto_Publicar'])) {
         if (subirFoto('img_produ')) {
             // $errores['img_produ'] = "Foto subida";
 
-            $producto = ProductoDAO::crearProducto($_REQUEST['nombre_produ'], $_REQUEST['categoria_produ'], $_REQUEST['precio_produ'], $_REQUEST['desc_produ'], $_SESSION['ruta_foto']);
+            $producto = ProductoDAO::crearProducto($_REQUEST['nombre_produ'], $_SESSION['user'], $_REQUEST['categoria_produ'], $_REQUEST['precio_produ'], $_REQUEST['desc_produ'], $_SESSION['ruta_foto']);
             $_SESSION['producto'] = $producto;
             //hay que andarse con cuidado por aqui
 
             $errores['validado'] = "Producto publicado con éxito!";
+
+            //crear variables para ver producto
+            $nombre_produ = ProductoDAO::buscarRegistroPorUser('nombre', $_SESSION['user']);
+            $categoria_produ = ProductoDAO::buscarRegistroPorUser('categoria', $_SESSION['user']);
+            $precio_produ = ProductoDAO::buscarRegistroPorUser('precio', $_SESSION['user']);
+            $desc_produ = ProductoDAO::buscarRegistroPorUser('descripcion', $_SESSION['user']);
+            $ruta_foto = ProductoDAO::buscarRegistroPorUser('imagen_url', $_SESSION['user']);
 
             // $_SESSION['vista'] = VIEW . 'producto.php';
         } else {
