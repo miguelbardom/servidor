@@ -12,18 +12,18 @@ if (isset($_REQUEST['Producto_Publicar'])) {
             $producto = ProductoDAO::crearProducto($_SESSION['user'], $_REQUEST['nombre_produ'], $_REQUEST['categoria_produ'], $_REQUEST['precio_produ'], $_REQUEST['desc_produ'], $_SESSION['ruta_foto']);
             $_SESSION['producto'] = $producto;
             //hay que andarse con cuidado por aqui
-            echo $_REQUEST['nombre_produ'];echo $_REQUEST['categoria_produ'];echo $_REQUEST['precio_produ'];echo $_REQUEST['desc_produ'];echo $_SESSION['ruta_foto'];
+            // echo $_REQUEST['nombre_produ'];echo $_REQUEST['categoria_produ'];echo $_REQUEST['precio_produ'];echo $_REQUEST['desc_produ'];echo $_SESSION['ruta_foto'];
 
             $errores['validado'] = "Producto publicado con éxito!";
 
             //crear variables para ver producto
-            $nombre_produ = ProductoDAO::buscarRegistroPorUser('nombre', $_SESSION['user']);
-            echo $nombre_produ;
-            // echo $categoria_produ;echo $precio_produ;echo $desc_produ;echo $ruta_foto;
-            // $categoria_produ = ProductoDAO::buscarRegistroPorUser('categoria', $_SESSION['user']);
-            // $precio_produ = ProductoDAO::buscarRegistroPorUser('precio', $_SESSION['user']);
-            // $desc_produ = ProductoDAO::buscarRegistroPorUser('descripcion', $_SESSION['user']);
-            // $ruta_foto = ProductoDAO::buscarRegistroPorUser('imagen_url', $_SESSION['user']);
+            $nombre_produ = ProductoDAO::buscarUltimoRegistro('nombre', $_SESSION['user']);
+            $categoria_produ = ProductoDAO::buscarUltimoRegistro('categoria', $_SESSION['user']);
+            $precio_produ = ProductoDAO::buscarUltimoRegistro('precio', $_SESSION['user']);
+            $desc_produ = ProductoDAO::buscarUltimoRegistro('descripcion', $_SESSION['user']);
+            $ruta_foto = ProductoDAO::buscarUltimoRegistro('imagen_url', $_SESSION['user']);
+            
+            // echo $nombre_produ;echo $categoria_produ;echo $precio_produ;echo $desc_produ;echo $ruta_foto;
 
             // $_SESSION['vista'] = VIEW . 'producto.php';
         } else {

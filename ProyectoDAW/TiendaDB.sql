@@ -41,7 +41,6 @@ CREATE TABLE Productos (
 );
     --stock INT NOT NULL,
     --activo BOOLEAN NOT NULL DEFAULT true,-- tambien es lioso
---blob para img ?
 
 -- Crear la tabla de transacciones
 CREATE TABLE Transacciones (

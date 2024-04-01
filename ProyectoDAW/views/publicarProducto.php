@@ -96,17 +96,17 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Producto: <? $nombre_produ; ?></h5>
+                <h5 class="modal-title">Producto: <? echo $nombre_produ; ?></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-                <img src="<? $ruta_foto; ?>">
+                <img src="<? echo $ruta_foto; ?>" class="img-fluid">
                 <br>
-                <? $precio_produ; ?>
+                <p><? echo $precio_produ; ?></p>
                 <br>
-                <? $categoria_produ; ?>
+                <p><? echo $categoria_produ; ?></p>
                 <br>
-                <? $desc_produ; ?>
+                <p><? echo $desc_produ; ?></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
