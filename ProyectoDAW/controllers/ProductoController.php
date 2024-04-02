@@ -9,9 +9,8 @@ if (isset($_REQUEST['Producto_Publicar'])) {
         if (subirFoto('img_produ')) {
             // $errores['img_produ'] = "Foto subida";
 
-            if (ProductoDAO::crearProducto($_SESSION['user'], $_REQUEST['nombre_produ'], $_REQUEST['categoria_produ'], $_REQUEST['precio_produ'], $_REQUEST['desc_produ'], $_SESSION['ruta_foto']))
+            if ($producto = ProductoDAO::crearProducto($_SESSION['user'], $_REQUEST['nombre_produ'], $_REQUEST['categoria_produ'], $_REQUEST['precio_produ'], $_REQUEST['desc_produ'], $_SESSION['ruta_foto']))
             {
-                $producto = ProductoDAO::crearProducto($_SESSION['user'], $_REQUEST['nombre_produ'], $_REQUEST['categoria_produ'], $_REQUEST['precio_produ'], $_REQUEST['desc_produ'], $_SESSION['ruta_foto']);
                 $_SESSION['producto'] = $producto;
 
                 //hay que andarse con cuidado por aqui
